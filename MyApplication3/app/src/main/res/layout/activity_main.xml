@@ -4,53 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/app_background"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/SignUp_Butn"
-        android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="500dp"
-        android:background="@drawable/custom_butn"
-        android:text="Sign Up"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/Login_Button"
-        android:layout_width="310dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="350dp"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:background="@drawable/custom_butn"
-        />
-
-    <TextView
-        android:id="@+id/Label_TextView"
-        android:layout_width="243dp"
-        android:layout_height="69dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal"
-        android:text="Local Apparel"
-        android:textSize="35sp"
-        android:textStyle="normal|bold"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="138dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="271dp"
         app:layout_constraintBottom_toTopOf="@+id/Login_Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo" />
+
+    <Button
+        android:id="@+id/Login_Button"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/custom_butn"
+
+        android:enabled="true"
+
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/log_in"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorAppBackground"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/SignUp_Butn"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="500dp"
+        android:background="@drawable/custom_butn"
+
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/sign_up"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorAppBackground"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
