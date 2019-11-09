@@ -1,22 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".LoginActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:background="@drawable/app_background"
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="171dp"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="541dp"
-        android:text="YOU ARE NOW AT THE LOGIN SCREEN! >=D "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_login"
+        android:layout_marginBottom="100dp"/>
+
+
+    <EditText
+        android:id="@+id/email_view"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:ems="15"
+        android:hint="@string/email_hint_string"
+        android:inputType="textEmailAddress"
+        android:backgroundTint="@color/colorButtonRed"
+        android:textCursorDrawable="@color/colorButtonRed"
+        android:textColorHighlight="@color/colorAppBackground"/>
+
+
+    <EditText
+        android:id="@+id/password_view"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:ems="15"
+        android:hint="@string/password_hint_string"
+        android:inputType="textPassword"
+        android:backgroundTint="@color/colorButtonRed"
+        android:textCursorDrawable="@color/colorButtonRed"/>
+
+
+    <Button
+        android:id="@+id/registerButtonView"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_butn"
+
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/log_in"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorAppBackground" />
+
+
+
+</LinearLayout>

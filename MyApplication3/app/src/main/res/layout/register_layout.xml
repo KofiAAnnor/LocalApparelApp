@@ -13,7 +13,8 @@
         android:layout_height="45dp"
         android:ems="15"
         android:hint="@string/fill_name_hint_string"
-        android:inputType="textPostalAddress" />
+        android:inputType="textPostalAddress"
+        android:backgroundTint="@color/colorButtonRed"/>
 
     <EditText
         android:id="@+id/email_view"
@@ -21,7 +22,8 @@
         android:layout_height="45dp"
         android:ems="15"
         android:hint="@string/email_hint_string"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:backgroundTint="@color/colorButtonRed"/>
 
 
     <EditText
@@ -30,7 +32,8 @@
         android:layout_height="45dp"
         android:ems="15"
         android:hint="@string/password_hint_string"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:backgroundTint="@color/colorButtonRed"/>
 
     <EditText
         android:id="@+id/confirmPassword_view"
@@ -38,7 +41,8 @@
         android:layout_height="45dp"
         android:ems="15"
         android:hint="@string/confirm_pass_hint_string"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:backgroundTint="@color/colorButtonRed"/>
 
     <EditText
         android:id="@+id/zipcode_View"
@@ -46,7 +50,8 @@
         android:layout_height="45dp"
         android:ems="15"
         android:hint="Zip Code"
-        android:inputType="number" />
+        android:inputType="number"
+        android:backgroundTint="@color/colorButtonRed"/>
 
 
     <Button
