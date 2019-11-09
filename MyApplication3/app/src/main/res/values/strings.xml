@@ -19,7 +19,16 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-
     <string name="log_in">LOG IN</string>
     <string name="sign_up">SIGN UP</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_user_fragment">Hello user fragment</string>
+    <string name="hello_buy_fragment">Hello buy fragment</string>
+    <string name="hello_sell_fragment">Hello sell fragment</string>
+    <string name="hello_chat_fragment">Hello chat fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

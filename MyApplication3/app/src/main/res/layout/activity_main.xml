@@ -27,14 +27,11 @@
         android:layout_height="55dp"
         android:layout_marginTop="350dp"
         android:background="@drawable/custom_butn"
-
         android:enabled="true"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/log_in"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/colorAppBackground"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
@@ -48,12 +45,10 @@
         android:layout_height="55dp"
         android:layout_marginTop="500dp"
         android:background="@drawable/custom_butn"
-
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/sign_up"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/colorAppBackground"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.55"
@@ -61,7 +56,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55" />
 
-
+    <Button
+        android:id="@+id/dash_Button"
+        android:layout_width="104dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/custom_butn"
+        android:text="Dash Btn"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

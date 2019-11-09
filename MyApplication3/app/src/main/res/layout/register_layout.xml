@@ -61,5 +61,15 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/colorAppBackground" />
 
+    <Button
+        android:id="@+id/fakeRegisterButtonView2"
+        android:layout_width="147dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_butn"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/sign_up"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorAppBackground" />
 
 </LinearLayout>

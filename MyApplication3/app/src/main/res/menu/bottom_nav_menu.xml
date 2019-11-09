@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/UserAID"
+        android:title="User"
+        android:icon="@drawable/ic_avatar"/>
+
+    <item
+        android:id="@+id/Buy_ItemsAID"
+        android:title="Buy Items"
+        android:icon="@drawable/ic_sell_clothes"/>
+
+    <item
+        android:id="@+id/Sell_ClothesAID"
+        android:title="Sell Clothes"
+        android:icon="@drawable/photo_camera"/>
+
+    <item
+        android:id="@+id/ChatAID"
+        android:title="Conversate"
+        android:icon="@drawable/ic_speech_bubble"/>
+</menu>

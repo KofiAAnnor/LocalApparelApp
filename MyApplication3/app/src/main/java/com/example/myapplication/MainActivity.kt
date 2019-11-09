@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     //private var mAuth: FirebaseAuth? = null
     private lateinit var signUpBtn: Button
     private lateinit var loginBtn: Button
-
+    private lateinit var dashBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,10 +32,17 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "You Just Decided to Sign Up", Toast.LENGTH_LONG).show()
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
         }
+
+        //just so I can get to the dashboard without having to login
+        dashBtn.setOnClickListener {
+            Toast.makeText(applicationContext, "You used Dash Button to get to the dah board", Toast.LENGTH_LONG).show()
+            startActivity(Intent(this@MainActivity, DashboardActivity::class.java))
+        }
     }
 
     private fun initializeViews() {
         signUpBtn = findViewById(R.id.SignUp_Butn)
         loginBtn = findViewById(R.id.Login_Button)
+        dashBtn = findViewById(R.id.dash_Button)
     }
 }

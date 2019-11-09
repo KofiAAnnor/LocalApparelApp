@@ -19,6 +19,8 @@ class RegistrationActivity: AppCompatActivity() {
     private lateinit var confirmPasswordTV: EditText
     private lateinit var zipcodeTV: EditText
     private lateinit var registerButtnView: Button
+    private lateinit var fakeregisterButtnView: Button
+
     private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +33,7 @@ class RegistrationActivity: AppCompatActivity() {
         initializeUI()
 
         registerButtnView.setOnClickListener { registerNewUser() }
+        fakeregisterButtnView.setOnClickListener { fakeRegisterNewUser() }
     }
 
     private fun registerNewUser() {
@@ -71,6 +74,11 @@ class RegistrationActivity: AppCompatActivity() {
         }
     }
 
+    private fun fakeRegisterNewUser() {
+        Toast.makeText(applicationContext, "You Just Decided to Sign Up", Toast.LENGTH_LONG).show()
+        startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
+    }
+
     private fun initializeUI() {
         fullNameTV = findViewById(R.id.fullName_view)
         emailTv = findViewById(R.id.email_view)
@@ -78,5 +86,7 @@ class RegistrationActivity: AppCompatActivity() {
         confirmPasswordTV = findViewById(R.id.confirmPassword_view)
         zipcodeTV = findViewById(R.id.zipcode_View)
         registerButtnView = findViewById(R.id.registerButtonView)
+        fakeregisterButtnView = findViewById(R.id.fakeRegisterButtonView2)
+
     }
 }
