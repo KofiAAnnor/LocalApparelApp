@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
     private fun initializeUI() {
         userEmail = findViewById(R.id.email_view)
         userPassword = findViewById(R.id.password_view)
-        loginBtn = findViewById(R.id.loginButton_view)
+        loginBtn = findViewById(R.id.registerButtonView)
     }
 
 }
