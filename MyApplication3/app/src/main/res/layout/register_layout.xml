@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_background"
     android:orientation="vertical"
     android:gravity="center">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_signup"
+        android:layout_marginTop="-70dp"/>
 
 
     <EditText
@@ -14,7 +22,9 @@
         android:ems="15"
         android:hint="@string/fill_name_hint_string"
         android:inputType="textPostalAddress"
-        android:backgroundTint="@color/colorButtonRed"/>
+        android:backgroundTint="@color/colorButtonRed"
+
+        android:layout_marginTop="40dp"/>
 
     <EditText
         android:id="@+id/email_view"
@@ -57,8 +67,8 @@
     <Button
         android:id="@+id/registerButtonView"
         android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="45dp"
         android:background="@drawable/custom_butn"
 
         android:fontFamily="sans-serif-condensed-medium"
@@ -69,7 +79,7 @@
     <Button
         android:id="@+id/fakeRegisterButtonView2"
         android:layout_width="147dp"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/custom_butn"
         android:fontFamily="sans-serif-condensed-medium"

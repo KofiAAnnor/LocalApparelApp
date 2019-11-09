@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
+        android:orientation="vertical"
+        android:background="@color/colorAppBackground">
+
+        <ImageView
+            android:id="@+id/profile_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logo2"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_sell_clothes"
+            android:layout_marginTop="100dp"/>
+
+        <TextView
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textAlignment="center"
+
+            android:layout_marginTop="40dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/product_size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Size"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/product_brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Brand"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Price"
+            android:textAlignment="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp"/>
+
+
+        <TextView
+            android:id="@+id/likeproduct_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Like this product?"
+            android:textAlignment="center"
+            android:layout_marginTop="50dp"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15dp"/>
+
+        <Button
+            android:id="@+id/registerButtonView"
+            android:layout_gravity="center"
+            android:layout_width="340dp"
+            android:layout_height="45dp"
+            android:background="@drawable/custom_butn"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/contact_seller"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorAppBackground" />
+
+
+    </LinearLayout>
+
+
+</FrameLayout>
