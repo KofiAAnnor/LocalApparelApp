@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:gravity="right">
+
+    <TextView
+        android:id="@+id/text_message_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1:50pm"
+        android:textSize="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:id="@+id/text_message_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/message_bubble_sent"
+        android:layout_marginRight="8dp"
+        android:maxWidth="200dp"
+        android:padding="10dp"
+        android:text="message_sent!"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

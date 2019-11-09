@@ -11,8 +11,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 
 
-
-
 /**
  * A simple [Fragment] subclass.
  */

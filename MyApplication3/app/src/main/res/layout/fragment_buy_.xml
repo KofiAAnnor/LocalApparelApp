@@ -10,7 +10,6 @@
         android:layout_height="625dp"
         android:orientation="vertical">
 
-
         <ImageView
             android:id="@+id/profile_logo"
             android:layout_width="match_parent"
