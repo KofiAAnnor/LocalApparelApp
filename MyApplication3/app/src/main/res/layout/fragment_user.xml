@@ -43,6 +43,19 @@
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp" />
 
+
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="340dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/custom_butn"
+
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/log_out"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorAppBackground" />
+
     </LinearLayout>
 
 

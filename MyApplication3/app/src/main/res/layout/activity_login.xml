@@ -16,13 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_login"
-        android:layout_marginBottom="100dp"/>
+        android:layout_marginTop="-120dp"/>
 
 
     <EditText
         android:id="@+id/email_view"
         android:layout_width="340dp"
         android:layout_height="55dp"
+        android:layout_marginTop="70dp"
         android:ems="15"
         android:hint="@string/email_hint_string"
         android:inputType="textEmailAddress"
@@ -45,7 +46,7 @@
     <Button
         android:id="@+id/registerButtonView"
         android:layout_width="340dp"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/custom_butn"
 
