@@ -21,6 +21,7 @@
 
     <string name="log_in">LOG IN</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="list_item">LIST ITEM</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_user_fragment">Hello user fragment</string>
