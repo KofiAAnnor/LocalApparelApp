@@ -1,1 +1,0 @@
-I'll need to learn how to manage a firebase database since I've already created my own. 

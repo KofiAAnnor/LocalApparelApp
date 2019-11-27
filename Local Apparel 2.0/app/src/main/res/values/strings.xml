@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+
+    <!--    these are for the names of the icons in the nav Bar -->
+    <string name="navbar_user_icon_name">User</string>
+    <string name="navbar_buy_icon_name">Buy Items</string>
+    <string name="navbar_sell_icon_name">Sell Items</string>
+    <string name="navbar_chat_icon_name">Chat</string>
+
+
+<!--    These are the hints that go on the Register page editTexts and Buttons-->
+    <string name="email_hint_string">Email</string>
+    <string name="password_hint_string">Password</string>
+    <string name="fill_name_hint_string">Full Name</string>
+    <string name="confirm_pass_hint_string">Confirm Password</string>
+    <string name="zip_code_hint_string">Zip Code</string>
+    <string name="go_to_login">Go To Login Screen</string>
+    <string name="sign_up">Sign Up</string>
+
+<!--    These are the string that go in my Rgistrations.kt file -->
+    <string name="register_success_string">Registration successful!</string>
+    <string name="register_failed_string">Registration failed! Please try again later</string>
+</resources>

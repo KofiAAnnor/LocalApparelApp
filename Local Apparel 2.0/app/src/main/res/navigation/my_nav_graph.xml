@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav_graph"
+    app:startDestination="@id/my_user_frag_id">
+
+    <fragment
+        android:id="@+id/my_user_frag_id"
+        android:name="com.example.myapplication.Fragments.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/user_to_test_action_id"
+            app:destination="@id/test_Fragment_id" />
+        <action
+            android:id="@+id/user_to_chat_action_id"
+            app:destination="@id/my_chat_frag_id" />
+        <action
+            android:id="@+id/user_to_buy_action_id"
+            app:destination="@id/my_buy_frag_id" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/my_chat_frag_id"
+        android:name="com.example.myapplication.Fragments.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
+
+    <fragment
+        android:id="@+id/test_Fragment_id"
+        android:name="com.example.myapplication.Fragments.test_Fragment"
+        android:label="fragment_test_"
+        tools:layout="@layout/fragment_test_" />
+    <fragment
+        android:id="@+id/my_buy_frag_id"
+        android:name="com.example.myapplication.Fragments.BuyFragment"
+        android:label="fragment_buy"
+        tools:layout="@layout/fragment_buy" />
+</navigation>

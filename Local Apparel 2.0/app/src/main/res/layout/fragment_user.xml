@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.UserFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!--    <TextView-->
+    <!--        android:id="@+id/my_user_frag_id"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="Use Something"-->
+    <!--        android:textColor="@android:color/black"-->
+    <!--        android:textSize="75sp" />-->
+
+    <TextView
+        android:id="@+id/testTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="Hello User"
+        android:textSize="75sp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="167dp"
+        android:layout_height="240dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_avatar"
+        android:translationY="-100dp" />
+
+    <Button
+        android:id="@+id/go_to_test_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#A8C79C"
+        android:translationY="400dp"
+        android:text="Go To Test" />
+
+    <Button
+        android:id="@+id/go_to_buy_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go To Buy"
+        android:textSelectHandle="@android:drawable/btn_star_big_on"
+        android:translationY="500dp" />
+
+    <Button
+        android:id="@+id/go_to_chat_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="600dp"
+        android:text="Go To Chat" />
+
+    <Button
+        android:id="@+id/user_logout_button_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:layout_gravity="bottom" />
+
+
+</FrameLayout>
