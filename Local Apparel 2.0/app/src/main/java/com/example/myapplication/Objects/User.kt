@@ -9,12 +9,19 @@ class User {
     var userImageUrl: String? = null
     var itemsUpForSale: ArrayList<Items>? = null
 
-    constructor(userID:String, userName:String, userEmail:String, userImageUrl: String){
+    constructor(userID:String, userName:String, userEmail:String){
+        this.userID = userID
+        this.userName = userName
+        this.userEmail = userEmail
+        this.itemsUpForSale = ArrayList<Items>()
+    }
+
+    constructor(userID:String, userName:String, userEmail:String, userImageUrl:String){
         this.userID = userID
         this.userName = userName
         this.userEmail = userEmail
         this.userImageUrl = userImageUrl
-        itemsUpForSale = ArrayList<Items>()
+        this.itemsUpForSale = ArrayList<Items>()
     }
 
     fun addItems(itemToAdd:Items){

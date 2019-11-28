@@ -9,7 +9,7 @@
     <string name="navbar_chat_icon_name">Chat</string>
 
 
-<!--    These are the hints that go on the Register page editTexts and Buttons-->
+    <!--    These are the hints that go on the Register page editTexts and Buttons-->
     <string name="email_hint_string">Email</string>
     <string name="password_hint_string">Password</string>
     <string name="fill_name_hint_string">Full Name</string>
@@ -18,7 +18,41 @@
     <string name="go_to_login">Go To Login Screen</string>
     <string name="sign_up">Sign Up</string>
 
-<!--    These are the string that go in my Rgistrations.kt file -->
+    <!--    These are the string that go in my Rgistrations.kt file -->
     <string name="register_success_string">Registration successful!</string>
     <string name="register_failed_string">Registration failed! Please try again later</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name_item">Name your item</string>
+    <string name="item_price">Enter price here</string>
+    <string name="item_brand">Enter brand here</string>
+    <string name="describe_item">Briefly describe the item...</string>
+
+    <array name="condition">
+        <item name="new">New</item>
+        <item name="fairly_new">Fairly New</item>
+        <item name="fair">Fair</item>
+        <item name="worn">Worn</item>
+        <item name="trash">Trash</item>
+    </array>
+
+    <array name="category">
+        <item name="shirt">Shirt</item>
+        <item name="pants">Pants</item>
+        <item name="skirt">Skirt</item>
+        <item name="shoes">Shoes</item>
+        <item name="underwear">Underwear</item>
+        <item name="socks">Socks</item>
+        <item name="jacket">Jacket</item>
+    </array>
+
+    <array name="size">
+        <item name="s">Small</item>
+        <item name="m">Medium</item>
+        <item name="l">Large</item>
+        <item name="xl">Xtra Large</item>
+        <item name="xxl">XXtra Large</item>
+    </array>
+
 </resources>

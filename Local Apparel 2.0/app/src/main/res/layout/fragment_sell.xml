@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMyGrey"
+    tools:context=".Fragments.SellFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:id="@+id/uploaditem_button_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rounded_edges_blue"
+        android:text="Upload Item"
+        app:layout_constraintBottom_toTopOf="@+id/item_image_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/chooseimage_button_id"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <Button
+        android:id="@+id/chooseimage_button_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rounded_edges_blue"
+        android:text="Choose Image"
+        app:layout_constraintBottom_toTopOf="@+id/item_image_id"
+        app:layout_constraintEnd_toStartOf="@+id/uploaditem_button_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <ImageView
+        android:id="@+id/item_image_id"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/photo_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="80dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/item_image_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editText_name_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/name_item" />
+
+        <Spinner
+            android:id="@+id/condition_spinner_id"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:entries="@array/condition" />
+
+        <Spinner
+            android:id="@+id/category_spinner_id"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:entries="@array/category" />
+
+        <Spinner
+            android:id="@+id/size_spinner_id"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:entries="@array/size" />
+
+        <EditText
+            android:id="@+id/editText_brand_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/item_brand" />
+
+        <EditText
+            android:id="@+id/editText_price_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/item_price"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editText_describe_id"
+            android:layout_width="match_parent"
+            android:layout_height="78dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="@string/describe_item"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/takephoto_button_id"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circular_select_photo"
+        android:text="Take a Pic"
+        app:layout_constraintBottom_toBottomOf="@+id/item_image_id"
+        app:layout_constraintEnd_toEndOf="@+id/item_image_id"
+        app:layout_constraintStart_toStartOf="@+id/item_image_id"
+        app:layout_constraintTop_toTopOf="@+id/item_image_id" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorAppBackground">#FAF5F4</color>
-    <color name="colorButtonRed">#AA2E10</color>
-
+    <color name="colorMyOrange">#AA2E10</color>
+    <color name="colorMyYellow">#FFBF00</color>
+    <color name="colorMyRed">#FF2121</color>
+    <color name="colorMyBlue">#3B97AA</color>
+    <color name="colorMyGrey">#838F8C8C</color>
 </resources>

@@ -13,7 +13,7 @@
         android:id="@+id/select_photo_button_id"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@drawable/rounded_select_photo"
+        android:background="@drawable/circular_select_photo"
         android:translationY="-20dp"
         android:text="Select Photo" />
 

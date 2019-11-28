@@ -21,5 +21,4 @@ class BuyFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_buy, container, false)
     }
 
-
 }

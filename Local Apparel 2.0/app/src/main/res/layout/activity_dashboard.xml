@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard">
 
-
     <!--    <FrameLayout-->
     <!--        android:id="@+id/my_frag_container_id"-->
     <!--        android:layout_width="match_parent"-->
@@ -37,14 +36,16 @@
         android:id="@+id/my_bottom_navigaiton_bar_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorButtonRed"
+        android:background="@color/colorMyOrange"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/my_nav_host_fragment_id"
-        app:menu="@menu/my_bottom_nav_menu" />
+        app:menu="@menu/my_bottom_nav_menu" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

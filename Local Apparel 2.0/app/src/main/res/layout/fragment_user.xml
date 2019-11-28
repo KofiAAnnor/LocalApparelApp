@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.UserFragment">
@@ -16,51 +17,99 @@
     <!--        android:textColor="@android:color/black"-->
     <!--        android:textSize="75sp" />-->
 
-    <TextView
-        android:id="@+id/testTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:text="Hello User"
-        android:textSize="75sp" />
+    <!--    <Button-->
+    <!--        android:id="@+id/go_to_buy_button_id"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Go To Buy"-->
+    <!--        android:textSelectHandle="@android:drawable/btn_star_big_on"-->
+    <!--        android:translationY="500dp" />-->
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="167dp"
-        android:layout_height="240dp"
-        android:layout_gravity="center"
-        android:src="@drawable/ic_avatar"
-        android:translationY="-100dp" />
+    <!--    <Button-->
+    <!--        android:id="@+id/go_to_chat_button_id"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:translationY="600dp"-->
+    <!--        android:text="Go To Chat" />-->
 
-    <Button
-        android:id="@+id/go_to_test_button_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#A8C79C"
-        android:translationY="400dp"
-        android:text="Go To Test" />
-
-    <Button
-        android:id="@+id/go_to_buy_button_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Go To Buy"
-        android:textSelectHandle="@android:drawable/btn_star_big_on"
-        android:translationY="500dp" />
-
-    <Button
-        android:id="@+id/go_to_chat_button_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:translationY="600dp"
-        android:text="Go To Chat" />
 
     <Button
         android:id="@+id/user_logout_button_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rounded_edges_red"
         android:text="Log Out"
-        android:layout_gravity="bottom" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wishList_button_id" />
+
+    <ImageView
+        android:id="@+id/imageView_id"
+        android:layout_width="224dp"
+        android:layout_height="224dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hello_textview_id"
+        tools:src="@drawable/profile_avatar" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="100dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_id" />
+
+    <TextView
+        android:id="@+id/hello_textview_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Hello User"
+        android:textSize="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/wishList_button_id"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="30dp"
+        android:background="@drawable/rounded_edges_blue"
+        android:text="Wish List"
+        app:layout_constraintBottom_toTopOf="@+id/user_logout_button_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <Button
+        android:id="@+id/clothesSold_button_id"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rounded_edges_blue"
+        android:text="Clothes Up For Sale"
+        app:layout_constraintBottom_toTopOf="@+id/user_logout_button_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <Button
+        android:id="@+id/editProfile_button_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_edges_blue"
+        android:text="Edit Profile"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_id" />
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

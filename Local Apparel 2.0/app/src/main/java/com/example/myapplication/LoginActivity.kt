@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -19,16 +21,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var userEmail: EditText
     private lateinit var userPassword: EditText
     private lateinit var loginBtn: Button
+    private lateinit var mPrefs: SharedPreferences
     private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         mAuth = FirebaseAuth.getInstance()
-
         initializeUI()
-
         loginBtn.setOnClickListener { loginUserAccount() }
     }
 
@@ -51,6 +51,12 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_LONG)
                         .show()
+                    //instantiate my shared prefernces object
+                    mPrefs = getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+                    val editor = mPrefs.edit()
+                    editor.putString("EMAIL", email)
+                    val dashBoardIntent = Intent(this@LoginActivity, Dashboard::class.java)
+                    dashBoardIntent.putExtra("email",userEmail.text.toString())
                     startActivity(Intent(this@LoginActivity, Dashboard::class.java))
                 } else {
                     Toast.makeText(
