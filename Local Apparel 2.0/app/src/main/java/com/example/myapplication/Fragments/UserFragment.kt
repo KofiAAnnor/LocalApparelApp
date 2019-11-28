@@ -33,6 +33,7 @@ class UserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         hello_textview_id.text = activity!!.intent.getStringExtra("email")
 
         if (null == savedInstanceState) {
@@ -54,6 +55,8 @@ class UserFragment : Fragment() {
         user_logout_button_id.setOnClickListener {
             startActivity(Intent(this.activity, MainActivity::class.java))
         }
+
+        clothesSold_button_id.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.user_to_saleList_action_id))
     }
 
 }

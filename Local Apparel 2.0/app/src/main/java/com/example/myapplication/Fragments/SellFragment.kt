@@ -43,6 +43,9 @@ class SellFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         chooseimage_button_id.setOnClickListener { selectPhoto() }
         uploaditem_button_id.setOnClickListener { uploadImageToFireBaseStorage() }
+        takephoto_button_id.setOnClickListener {
+            Toast.makeText(activity,"Not implemented yet",Toast.LENGTH_LONG)
+        }
     }
 
     private fun selectPhoto() {
