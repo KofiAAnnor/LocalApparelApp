@@ -15,7 +15,9 @@ error
 5.) This UI is Hideous and I did everything with constraint layouts cuz Linear us STUPID! [Akshi FIGHT ME].
 If yall wanna make any kind of changes to the UI I AM DOWN FOR IT! lol 
 6.) My hope/dream is that all we'll have to do on Sunday is just make the presentation video and THAT'S IT. 
-7.) Prevent app from going into portrait mode
+7.) Prevent app from going into portrait mode [DONE! lol one line of code]
+8.) We also need to do some kind of thing where the user cna pic sellers within their range. We need to do map stuff. 
+	The thing worrying me the most is map stuff and chat. =| 
 
 Bonus:
 If there is time, which i doubt there will be[let's be real lol], we can also try to add some "settings" options. 
