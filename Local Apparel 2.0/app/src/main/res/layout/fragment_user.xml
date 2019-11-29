@@ -7,32 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.UserFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!--    <TextView-->
-    <!--        android:id="@+id/my_user_frag_id"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:gravity="center"-->
-    <!--        android:text="Use Something"-->
-    <!--        android:textColor="@android:color/black"-->
-    <!--        android:textSize="75sp" />-->
-
-    <!--    <Button-->
-    <!--        android:id="@+id/go_to_buy_button_id"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Go To Buy"-->
-    <!--        android:textSelectHandle="@android:drawable/btn_star_big_on"-->
-    <!--        android:translationY="500dp" />-->
-
-    <!--    <Button-->
-    <!--        android:id="@+id/go_to_chat_button_id"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:translationY="600dp"-->
-    <!--        android:text="Go To Chat" />-->
-
-
     <Button
         android:id="@+id/user_logout_button_id"
         android:layout_width="match_parent"
@@ -45,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wishList_button_id" />
+        app:layout_constraintTop_toBottomOf="@+id/user_wishList_button_id" />
 
     <ImageView
         android:id="@+id/imageView_id"
@@ -72,6 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="5dp"
         android:text="Hello User"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,23 +54,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/wishList_button_id"
+        android:id="@+id/user_wishList_button_id"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="30dp"
         android:background="@drawable/rounded_edges_blue"
-        android:text="Wish List"
+        android:fontFamily="serif"
+        android:text="My Wishlist"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/user_logout_button_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <Button
-        android:id="@+id/clothesSold_button_id"
+        android:id="@+id/user_ItemsUpForSale_Button_id"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/rounded_edges_blue"
+        android:fontFamily="serif"
         android:text="Clothes Up For Sale"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/user_logout_button_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
