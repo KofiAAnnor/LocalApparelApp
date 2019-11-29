@@ -16,9 +16,12 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
         val myView: View = layoutInflater.inflate(layoutResID,null)
 
-        val textViewName = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_TextView_id)
+        val itemnameTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_TextView_id)
+        val itemBrandTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_BrandTV_id)
         val item = myItemsList[position]
-        textViewName.text = item.itemName
+        itemnameTV.text = "Item Name: "+item.itemName
+        itemBrandTV.text = "Item Brand: "+item.itemBrand
+
         return myView
     }
 }
