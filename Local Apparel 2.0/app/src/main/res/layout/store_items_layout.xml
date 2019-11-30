@@ -19,14 +19,38 @@
         android:id="@+id/storeItemsLayout_itemName_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-    <TextView
-        android:id="@+id/storeItemsLayout_itemBrand_id"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/storeItemsLayout_itemPrice_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Price"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/storeItemsLayout_itemSize_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Size
+"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/storeItemsLayout_itemEmail_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/email_hint_string"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <LinearLayout

@@ -32,11 +32,11 @@ class User {
         itemsUpForSale?.remove(itemToRemove)
     }
 
-    fun takePassWord(pass:String){
+    fun setPassword(pass:String){
         userPassWord = pass
     }
 
-    fun takeZipCode(zipCode: String){
+    fun setZipCode(zipCode: String){
         userZipCode = zipCode
     }
 }

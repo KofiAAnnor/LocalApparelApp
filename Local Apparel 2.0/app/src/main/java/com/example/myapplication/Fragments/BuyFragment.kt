@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.fragment_buy.*
 /**
  * A simple [Fragment] subclass.
  */
+private const val MYTAG = "myBuyFrag"
 class BuyFragment : Fragment() {
 
     lateinit var ref: DatabaseReference
@@ -41,17 +42,19 @@ class BuyFragment : Fragment() {
                 // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            override fun onDataChange(p0: DataSnapshot) {
-                Log.i("myBuyFrag","You are looking at snapshots")
-                if(p0.exists()){
+            override fun onDataChange(mainShop: DataSnapshot) {
+                Log.i(MYTAG,"You are looking at snapshots")
+                if(mainShop.exists()){
                     storeItemsList.clear()
-                    for(h in p0.children){
+                    for(items in mainShop.children){
                         Log.i("myBuyFrag","You are looking at snapshots AGAIN!")
-                        val thisItem = h.getValue(Items::class.java)
+                        val thisItem = items.getValue(Items::class.java)
+                        //val itemName = thisItem!!.itemName.toString()
+                        //Log.i(MYTAG, "THE ITEM NAME IS $itemName")
                         storeItemsList.add(thisItem!!)
                     }
 
-                    val myAdapter = StoreItemsListAdapter(requireContext(),R.layout.store_items_layout,storeItemsList)
+                    val myAdapter = StoreItemsListAdapter(requireContext(),R.layout.store_items_layout,storeItemsList,savedInstanceState)
                     buy_items_LV_id.adapter = myAdapter
                 }
             }

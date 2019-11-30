@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Dashboard">
 
-    <!--    <FrameLayout-->
-    <!--        android:id="@+id/my_frag_container_id"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_above="@id/my_bottom_navigaiton_bar_id"-->
-    <!--        android:layout_marginEnd="1dp"-->
-    <!--        android:layout_marginBottom="54dp"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/my_bottom_navigaiton_bar_id"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <fragment
         android:id="@+id/my_nav_host_fragment_id"
         android:name="androidx.navigation.fragment.NavHostFragment"

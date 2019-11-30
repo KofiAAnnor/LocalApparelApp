@@ -2,7 +2,9 @@ package com.example.myapplication.Fragments
 
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
@@ -28,6 +30,7 @@ import java.util.*
 class SellFragment : Fragment() {
 
     private val MYTAG = "MySellFrag"
+    private lateinit var mPrefs: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,13 +43,11 @@ class SellFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sell_chooseimage_button_id.setOnClickListener { selectPhoto() }
+               sell_chooseimage_button_id.setOnClickListener { selectPhoto() }
 
-        sell_uploaditem_button_id.setOnClickListener { uploadImageToFireBaseStorage() }
-
-//        sell_takeAPic_button_id.setOnClickListener {
-//            Toast.makeText(context,"Not implemented yet",Toast.LENGTH_LONG).show()
-//        }
+        sell_uploaditem_button_id.setOnClickListener {
+            Toast.makeText(requireContext(),"Adding items to Store...",Toast.LENGTH_LONG)
+            uploadImageToFireBaseStorage() }
     }
 
     private fun selectPhoto() {
@@ -67,7 +68,7 @@ class SellFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
-            Log.i("MySellFrag", "Photo Was Selected")
+            Log.i(MYTAG, "Photo Was Selected")
 
             mySelectedPhotoUri = data.data
 
@@ -100,7 +101,7 @@ class SellFragment : Fragment() {
             return
         }
 
-        Log.i("myReg", "Lets Upload that image")
+        Log.i(MYTAG, "Lets Upload that image")
 
         val filename = UUID.randomUUID().toString()//give the current item a unique ID in FB STORAGE
         val myFireBaseRef = FirebaseStorage.getInstance().getReference("/shopImages/$filename")
@@ -125,6 +126,10 @@ class SellFragment : Fragment() {
         //TODO Also add the item to the users List of items.
         //It should have the same ID in both... Maybe items should have an ID param
 
+        //getting the user email from shared preferences
+        val fragPref = this.activity!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        val thisUsersEmail = fragPref.getString("EMAIL","No email").toString()
+
         //this is redundant, I could just pass in the values as parameters. =|
         val itemName = editText_name_id.text.toString()
         val itemSize = size_spinner_id.selectedItem.toString()
@@ -135,6 +140,7 @@ class SellFragment : Fragment() {
         val itemDescription = editText_describe_id.text.toString()
         val myItem = Items(itemName,itemSize,itemPrice,itemBrand,itemCondition,
             itemCategory,itemDescription)
+        myItem.setEmail(thisUsersEmail)
 
 
         //val itemID = FirebaseAuth.getInstance().uid ?: ""

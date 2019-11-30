@@ -5,33 +5,54 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.example.myapplication.R
+import android.content.Intent
+import android.R
+import android.net.Uri
+import com.example.myapplication.R.*
+import android.content.ActivityNotFoundException
+import android.os.Bundle
+import androidx.core.content.ContextCompat.startActivity
+
+
+
 
 private const val MYTAG = "myStoreAdapterTag"
-class StoreItemsListAdapter(val mCtx: Context, val layoutResID: Int, val myItemsList: List<Items>):
+class StoreItemsListAdapter(val mCtx: Context, val layoutResID: Int, val myItemsList: List<Items>,
+                            sOIS: Bundle?):
     ArrayAdapter<Items>(mCtx,layoutResID,myItemsList) {
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+    val thisOIS = sOIS
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         //return super.getView(position, convertView, parent)
 
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
         val myView: View = layoutInflater.inflate(layoutResID,null)
 
-        val itemNameTV = myView.findViewById<TextView>(R.id.storeItemsLayout_itemName_id)
-        val itemBrandTV = myView.findViewById<TextView>(R.id.storeItemsLayout_itemBrand_id)
-        val wishListButton = myView.findViewById<Button>(R.id.storeItemsLayout_WishListButton_id)
-        val messageButton = myView.findViewById<Button>(R.id.storeItemsLayout_msgButton_id)
-        val itemImage = myView.findViewById<ImageView>(R.id.storeItemsLayout_itemImage_id)
+        val itemImage = myView.findViewById<ImageView>(id.storeItemsLayout_itemImage_id)
+        val itemNameTV = myView.findViewById<TextView>(id.storeItemsLayout_itemName_id)
+        val itemPriceTV = myView.findViewById<TextView>(id.storeItemsLayout_itemPrice_id)
+        val itemSizeTV = myView.findViewById<TextView>(id.storeItemsLayout_itemSize_id)
+        val itemEmailTV = myView.findViewById<TextView>(id.storeItemsLayout_itemEmail_id)
+        val wishListButton = myView.findViewById<Button>(id.storeItemsLayout_WishListButton_id)
+        val messageButton = myView.findViewById<Button>(id.storeItemsLayout_msgButton_id)
         //Todo I wanna put an onclick listener on the item so it can show more info about the item.
 
         val theItem = myItemsList[position]
 
         itemNameTV.text = "Item Name: "+theItem.itemName
-        itemBrandTV.text = "Item Brand: "+theItem.itemBrand
+        itemPriceTV.text = "$"+theItem.itemPrice
+        itemSizeTV.text = "Size: "+theItem.itemSize
+        itemEmailTV.text = "Email: "+theItem.itemEmail
 
 
         messageButton.setOnClickListener {
             Toast.makeText(context,"Message", Toast.LENGTH_LONG).show()
+            val emailIntent = Intent(Intent.ACTION_SENDTO)
+            emailIntent.data = Uri.parse("mailto:"+theItem.itemEmail)
+            try {
+                startActivity(context, emailIntent,thisOIS)
+            } catch (e: ActivityNotFoundException) {
+                return@setOnClickListener
+            }
         }
         wishListButton.setOnClickListener {
             Toast.makeText(context,"WishList", Toast.LENGTH_LONG).show()

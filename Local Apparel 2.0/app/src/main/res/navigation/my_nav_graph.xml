@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_my_user_frag_id_to_sellFragment"
             app:destination="@id/my_sell_frag_id" />
+        <action
+            android:id="@+id/user_to_buy_again_action_id"
+            app:destination="@id/buyFragmentWithRecyclerView" />
     </fragment>
 
     <fragment
@@ -28,4 +31,9 @@
         android:name="com.example.myapplication.Fragments.SellFragment"
         android:label="fragment_sell"
         tools:layout="@layout/fragment_sell" />
+    <fragment
+        android:id="@+id/buyFragmentWithRecyclerView"
+        android:name="com.example.myapplication.Fragments.BuyFragmentWithRecyclerView"
+        android:label="my_buyAgain_frag_id"
+        tools:layout="@layout/fragment_buy_fragment_with_recycler_view" />
 </navigation>

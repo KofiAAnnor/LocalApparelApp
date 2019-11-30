@@ -15,4 +15,9 @@
         android:icon="@drawable/photo_camera"
         android:title="@string/navbar_sell_icon_name"
         />
+    <item
+        android:id="@+id/my_buyAgain_frag_id"
+        android:icon="@drawable/ic_send_message"
+        android:title="@string/buy_again"
+        />
 </menu>

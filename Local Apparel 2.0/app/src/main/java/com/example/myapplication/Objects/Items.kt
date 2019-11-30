@@ -10,6 +10,19 @@ class Items {
     var itemCondition: String? = null
     var itemCategory: String? = null
     var itemDescription: String? = null
+    var itemEmail: String? = null
+
+
+    constructor(name:String, brand:String, price:String){
+        this.itemName = name
+        this.itemPrice = price
+        this.itemBrand = brand
+        this.itemSize = "Blank"
+        this.itemCondition = "Blank"
+        this.itemCategory = "blank"
+        this.itemDescription = "blank"
+        this.itemEmail = "blank"
+    }
 
     constructor(name:String, size:String, price:String, brand:String,itemCondition: String,
                 itemCategory: String, itemDescription: String){
@@ -20,6 +33,7 @@ class Items {
         this.itemCondition = itemCondition
         this.itemCategory = itemCategory
         this.itemDescription = itemDescription
+        this.itemEmail = ""
     }
 
     fun setID(id: String){
@@ -33,12 +47,8 @@ class Items {
         this.itemBrand = brand
     }
 
-
-    constructor(name:String, size:String, price:String){
-        this.itemName = name
-        this.itemSize = size
-        this.itemPrice = price
+    fun setEmail(userEmail: String){
+        this.itemEmail = userEmail
     }
-
     constructor(): this("","","","","","","")
 }
