@@ -33,15 +33,16 @@
         android:enabled="true"/>
 
     <Button
+        android:id="@+id/register_button_id"
         android:layout_width="340dp"
         android:layout_height="55dp"
-        android:background="@drawable/custom_butn"
         android:layout_marginBottom="10dp"
-        android:text="REGISTER"
+        android:background="@drawable/custom_butn"
+        android:enabled="true"
         android:fontFamily="sans-serif-condensed-medium"
+        android:text="REGISTER"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorAppBackground"
-        android:enabled="true"/>
+        android:textColor="@color/colorAppBackground" />
 
     <Button
         android:id="@+id/dashButton_id"
