@@ -11,21 +11,12 @@
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" >
         <action
-            android:id="@+id/user_to_chat_action_id"
-            app:destination="@id/my_chat_frag_id" />
-        <action
             android:id="@+id/user_to_buy_action_id"
             app:destination="@id/my_buy_frag_id" />
         <action
             android:id="@+id/action_my_user_frag_id_to_sellFragment"
             app:destination="@id/my_sell_frag_id" />
     </fragment>
-
-    <fragment
-        android:id="@+id/my_chat_frag_id"
-        android:name="com.example.myapplication.Fragments.ChatFragment"
-        android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" />
 
     <fragment
         android:id="@+id/my_buy_frag_id"

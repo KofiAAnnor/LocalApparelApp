@@ -15,9 +15,4 @@
         android:icon="@drawable/photo_camera"
         android:title="@string/navbar_sell_icon_name"
         />
-    <item
-        android:id="@+id/my_chat_frag_id"
-        android:icon="@drawable/ic_speech_bubble"
-        android:title="@string/navbar_chat_icon_name"
-        />
 </menu>
