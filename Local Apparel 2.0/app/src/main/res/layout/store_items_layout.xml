@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/storeItemsLayout_itemImage_id"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
-        android:id="@+id/myItemsUpForSaleLayout_TextView_id"
+        android:id="@+id/storeItemsLayout_itemName_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <TextView
-        android:id="@+id/myItemsUpForSaleLayout_BrandTV_id"
+        android:id="@+id/storeItemsLayout_itemBrand_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -20,22 +29,26 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/iufs_layout_update_button_id"
+            android:id="@+id/storeItemsLayout_WishListButton_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Update Item" />
+            android:background="@drawable/rounded_edges_blue_kinda"
+            android:text="WishList" />
 
         <Button
-            android:id="@+id/iufs_layout_delete_button_id"
+            android:id="@+id/storeItemsLayout_msgButton_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_edges_blue"
             android:layout_weight="1"
-            android:text="Delete Item" />
+            android:text="Message"
+            android:textSize="14sp" />
+
     </LinearLayout>
 
 </LinearLayout>

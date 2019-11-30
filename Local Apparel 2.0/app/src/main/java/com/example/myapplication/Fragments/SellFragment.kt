@@ -140,7 +140,7 @@ class SellFragment : Fragment() {
         //val itemID = FirebaseAuth.getInstance().uid ?: ""
         val myRef = FirebaseDatabase.getInstance().getReference("mainShop")
         val itemID = myRef.push().key
-        myItem.setID(itemID.toString())
+        myItem.setID(itemID!!)
 
         val x = myRef.child(itemID!!).setValue(myItem)
         x.addOnSuccessListener {

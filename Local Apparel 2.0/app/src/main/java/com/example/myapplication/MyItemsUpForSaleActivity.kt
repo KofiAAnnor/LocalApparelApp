@@ -34,7 +34,7 @@ class MyItemsUpForSaleActivity : AppCompatActivity() {
                         myItemsUpForSaleList.add(thisItem!!)
                     }
 
-                    val myAdapter = MyItemsUpForSaleListAdapter(applicationContext,R.layout.my_items_up_for_sale_layout,myItemsUpForSaleList)
+                    val myAdapter = MyItemsUpForSaleListAdapter(this@MyItemsUpForSaleActivity,R.layout.my_items_up_for_sale_layout,myItemsUpForSaleList)
                     my_IUFS_listView_id.adapter = myAdapter
                 }
             }

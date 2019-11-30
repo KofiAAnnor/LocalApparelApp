@@ -25,6 +25,14 @@ class Items {
     fun setID(id: String){
         this.itemID = id
     }
+    fun setName(name: String){
+        this.itemName = name
+    }
+
+    fun setBrand(brand: String){
+        this.itemBrand = brand
+    }
+
 
     constructor(name:String, size:String, price:String){
         this.itemName = name
