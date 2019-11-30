@@ -8,10 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.myapplication.Objects.Items
-import com.example.myapplication.Objects.MyItemsUpForSaleListAdapter
+import com.example.myapplication.Objects.StoreItemsListAdapter
 import com.example.myapplication.R
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_items_up_for_sale.*
+import kotlinx.android.synthetic.main.fragment_buy.*
 
 /**
  * A simple [Fragment] subclass.
@@ -33,10 +33,12 @@ class BuyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         storeItemsList = mutableListOf()
+
         ref = FirebaseDatabase.getInstance().getReference("mainShop")
 
         ref.addValueEventListener(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
+                // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onDataChange(p0: DataSnapshot) {
@@ -49,16 +51,12 @@ class BuyFragment : Fragment() {
                         storeItemsList.add(thisItem!!)
                     }
 
-                    val myAdapter = MyItemsUpForSaleListAdapter(requireContext(),R.layout.store_items_layout,storeItemsList)
-                    //Todo change to = storeItemsAdapter
-                    my_IUFS_listView_id.adapter = myAdapter
+                    val myAdapter = StoreItemsListAdapter(requireContext(),R.layout.store_items_layout,storeItemsList)
+                    buy_items_LV_id.adapter = myAdapter
                 }
             }
 
         })
 
-
-
     }
-
 }
