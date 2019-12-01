@@ -4,41 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_linear_layout_id"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/activity_horizontal_margin"
     android:background="@drawable/app_background"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="109dp"
+        android:layout_marginTop="100dp"
         app:srcCompat="@drawable/ic_logo" />
 
     <Button
-        android:id="@+id/dashButton_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
-        android:background="@drawable/custom_butn"
-        android:text="Go To Dash"
-        android:layout_marginBottom="10dp"/>
-
-    <Button
         android:id="@+id/login_button_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
         android:background="@drawable/custom_butn"
-        android:text="Login"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="190dp"
+        android:text="LOG IN"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAppBackground"
+        android:enabled="true"/>
 
     <Button
         android:id="@+id/register_button_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_butn"
-        android:text="Register" />
+        android:enabled="true"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="REGISTER"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAppBackground" />
+
+    <Button
+        android:id="@+id/dashButton_id"
+        android:layout_width="340dp"
+        android:layout_height="55dp"
+        android:background="@drawable/custom_butn"
+        android:text="DASHBOARD"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorMyYellow"
+        android:enabled="true"
+       />
 
 
 </LinearLayout>

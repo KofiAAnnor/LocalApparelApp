@@ -9,6 +9,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.Objects.User
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var userEmail: EditText
     private lateinit var userPassword: EditText
     private lateinit var loginBtn: Button
+    private lateinit var registerTxt: TextView
     private lateinit var mPrefs: SharedPreferences
     private var mAuth: FirebaseAuth? = null
     private var globalUser: User? = null
@@ -33,6 +35,9 @@ class LoginActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         initializeUI()
         loginBtn.setOnClickListener { loginUserAccount() }
+        registerTxt.setOnClickListener {
+            startActivity(Intent(this@LoginActivity, RegistrationActivity::class.java))
+        }
     }
 
     private fun loginUserAccount() {
@@ -106,6 +111,7 @@ class LoginActivity : AppCompatActivity() {
         userEmail = findViewById(R.id.email_view)
         userPassword = findViewById(R.id.password_view)
         loginBtn = findViewById(R.id.login_fromLoginScreen_id)
+        registerTxt = findViewById(R.id.goto_register_screen)
     }
 
 }
