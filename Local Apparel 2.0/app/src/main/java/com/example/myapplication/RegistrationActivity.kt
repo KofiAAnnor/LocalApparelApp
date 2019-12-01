@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_registration.*
+import java.net.URL
 import java.util.*
 
 private const val MYTAG = "myRegistrationAct"
@@ -37,10 +38,9 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+
         Log.i(MYTAG, "Welcome to Registration")
         initializeUI()
-
-
 
         mAuth = FirebaseAuth.getInstance()
 
@@ -50,7 +50,8 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun selectPhoto() {
-        Log.i(MYTAG, "Try to show photo selector")
+        Toast.makeText(this, "Choose a photo", Toast.LENGTH_SHORT).show()
+        Log.i(MYTAG, "User Is Choosing a Photo")
 
         //create the intent for the photo selector, this allows us to go into the
         //gallery and select whatever photo we want
@@ -67,10 +68,11 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+
         if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
             Log.i(MYTAG, "Photo Was Selected")
-            Toast.makeText(this,"We are in On Act Res",Toast.LENGTH_LONG)
 
+            //get the info saved.
             mySelectedPhotoUri = data.data
             val theBitMap = MediaStore.Images.Media.getBitmap(contentResolver, mySelectedPhotoUri)
             val theBitMapPicture = BitmapDrawable(theBitMap)
@@ -83,6 +85,7 @@ class RegistrationActivity : AppCompatActivity() {
 
 
     private fun registerNewUser() {
+        Log.i(MYTAG, "Now We Register The User...")
         //When the user clicks register
         val fullName: String = fullNameTV.text.toString()
         val email: String = emailTv.text.toString()
@@ -107,16 +110,19 @@ class RegistrationActivity : AppCompatActivity() {
             return
         }
 
-        //If all the slots are filled out.
+        //If all the slots are filled out. We authenticate
 
         val x = mAuth!!.createUserWithEmailAndPassword(email, password)
 
         x.addOnCompleteListener { task ->
             if (task.isSuccessful) {
+                Log.i(MYTAG, "Authentication was a success")
                 Toast.makeText(applicationContext, getString(R.string.register_success_string), Toast.LENGTH_LONG).show()
                 uploadImageToFireBaseStorage() //CALL THE METHOD OT UPLOAD IMAGES!
-                Log.i(MYTAG, "The task was a success")
-                startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
+                val loginIntent = Intent(this@RegistrationActivity, LoginActivity::class.java)
+                loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(loginIntent)
+
             } else {
                 Toast.makeText(
                     applicationContext,
@@ -133,86 +139,74 @@ class RegistrationActivity : AppCompatActivity() {
             return
         }
         Log.i(MYTAG, "Lets Upload that image")
+
         val filename = UUID.randomUUID().toString()
-        val myFireBaseRef = FirebaseStorage.getInstance().getReference("/images/$filename")
 
+        val myFireBaseRef = FirebaseStorage.getInstance().reference.child("/images/$filename")
+                                    //TODO this use to say .getreference().child
         val x = myFireBaseRef.putFile(mySelectedPhotoUri!!)
-        x.addOnSuccessListener {
-            Log.i(MYTAG, "Successfully uploaded image: ${it.metadata?.path}")
-        }
-        x.addOnFailureListener{
-            Log.i(MYTAG, "Failed to upload the image")
-        }
-        saveUserToFireBaseDataBase()
-        //once the image is uploasded Add the user.
 
-        //todo If you uncomment this Block, Make sure to comment out the previous call to saveUserToFireBaseDataBase()
-//        myFireBaseRef.downloadUrl.addOnSuccessListener {
-//            Log.i(MYTAG, "File Location $it")
-//            //saveUserToFireBaseDataBase(it.toString())
-//            saveUserToFireBaseDataBase()
-//        }.addOnFailureListener{
-//            Log.i(MYTAG, "I FAILED to download file location $it")
+
+        val urlTask = x.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            myFireBaseRef.downloadUrl
+        }.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val downloadUri = task.result
+                Log.i(MYTAG, "THIS IS THE DOWNLOAD_URI -> "+downloadUri.toString())
+                saveUserToFireBaseDataBase(downloadUri.toString())
+            } else {
+            }
+        }.addOnFailureListener{
+            Log.i(MYTAG, "THE DOWNLOAD URT FAILED! =( ")
+        }
+
+        Log.i(MYTAG, "THIS IS THE SELECTED_PHOTO_URI -> "+mySelectedPhotoUri.toString())
+
+//        x.addOnSuccessListener {
+//            Log.i(MYTAG, "Successfully uploaded image. The Path is -> : ${it.metadata?.path}")
+//        }
+//        x.addOnFailureListener{
+//            Log.i(MYTAG, "Failed to upload the image")
 //        }
     }
 
-
-    //I'm saving the user without doing the URI download.
-    private fun saveUserToFireBaseDataBase() {
-        val email: String = emailTv.text.toString()
-        val uid = FirebaseAuth.getInstance().uid ?: ""
-        val myRef = FirebaseDatabase.getInstance().getReference("/users/$uid")
-
-
-
-        val name = fullName_view.text.toString()
-        val eMail = email_view.text.toString()
-
-
-        val myUser = User(uid, name, eMail)
-        myUser.setPassword(passwordTV.text.toString())
-        myUser.setZipCode(zipcodeTV.text.toString())
-        val firstItem = Items("MyShirt","Nike","2 million dollars")
-        myUser.addItems(firstItem)
-        val x = myRef.setValue(myUser)
-        x.addOnSuccessListener {
-            Log.i("myRegistration Act", "We saved the user")
-        }
-    }
-
-
     private fun saveUserToFireBaseDataBase(myProfileImageUrl: String) {
+        Log.i(MYTAG, "Let's Save The user to Firebase")
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val myUserRef = FirebaseDatabase.getInstance().getReference("/users/$uid")
-        val myUserItemsListRef = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-        //got this one way
+
         val name = fullName_view.text.toString()
         val eMail = email_view.text.toString()
 
-        if (uid == "" || name == "" || eMail == "" || myProfileImageUrl == "") {
-            return
-        }
 
-        //got this another way just cuz
-        val myUser = User(uid!!, name!!, eMail!!, myProfileImageUrl)
+        val myUser = User(uid, name, eMail, myProfileImageUrl)
         myUser.setPassword(passwordTV.text.toString())
         myUser.setZipCode(zipcodeTV.text.toString())
+
+        //add an item to the users items just to be sure. it works
         val firstItem = Items("MyShirt","Nike","2 million dollars")
         myUser.addItems(firstItem)
 
+        //add the user to the Databse
         val x = myUserRef.setValue(myUser)
+
         x.addOnSuccessListener {
             Log.i(MYTAG, "We saved the user")
         }
     }
 
     private fun fakeRegisterNewUser() {
-        Toast.makeText(applicationContext, "You Just Decided to Sign Up", Toast.LENGTH_LONG).show()
         startActivity(Intent(this@RegistrationActivity, LoginActivity::class.java))
     }
 
     private fun initializeUI() {
+        Log.i(MYTAG, "We Initialize UI")
         fullNameTV = findViewById(R.id.fullName_view)
         emailTv = findViewById(R.id.email_view)
         passwordTV = findViewById(R.id.password_view)

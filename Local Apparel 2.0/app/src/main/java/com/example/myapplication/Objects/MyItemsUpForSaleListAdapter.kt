@@ -26,9 +26,12 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
         val itemBrandTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_BrandTV_id)
         val updateButton = myView.findViewById<Button>(R.id.iufs_layout_update_button_id)
         val deleteButton = myView.findViewById<Button>(R.id.iufs_layout_delete_button_id)
+
         val theItem = myItemsList[position]
+
         itemNameTV.text = "Item Name: "+theItem.itemName
         itemBrandTV.text = "Item Brand: "+theItem.itemBrand
+
         updateButton.setOnClickListener {
             Toast.makeText(context,"Updating "+theItem.itemName,Toast.LENGTH_LONG).show()
             showUpdateDialog(theItem)
@@ -84,11 +87,12 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
         val changeNameETV = myUpdateView.findViewById<TextView>(R.id.changeName_id)
         val changeBrandETV = myUpdateView.findViewById<TextView>(R.id.changeBrand_id)
+
         //now the views in the dialogue box contain the items current values
         changeNameETV.text = theItem.itemName
         changeBrandETV.text=theItem.itemBrand
 
-        //set view to our builder.
+        //set view to our builder. Whatever that means.
         builder.setView(myUpdateView)
 
 
@@ -99,21 +103,22 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
             //get the new values that the user typed in
             val newItemName = changeNameETV.text.toString().trim()
+            val newItemBrand = changeBrandETV.text.toString().trim()
 
             //if they didnt give a new name or brand
-            if(newItemName.isEmpty()|| newItemName.isEmpty()){
+            if(newItemName.isEmpty()|| newItemBrand.isEmpty()){
                 changeNameETV.error = "Please Enter a Name"
                 changeNameETV.requestFocus()
                 //return@setPositiveButton //this is the equivalent of a return inside a lambda or inner class
             }else {
                 //change the information
                 theItem.setName(newItemName)
+                theItem.setBrand(newItemBrand)
                 dbItem.child(theItem.itemID!!).setValue(theItem).addOnSuccessListener {
                     Toast.makeText(mCtx,"Item Updated",Toast.LENGTH_LONG).show()
                 }
             }
         }
-
 
         builder.setNegativeButton("No"
         ) { dialog, which ->

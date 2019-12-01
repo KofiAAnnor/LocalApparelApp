@@ -29,6 +29,10 @@
     <string name="item_price">Enter price here</string>
     <string name="item_brand">Enter brand here</string>
     <string name="describe_item">Briefly describe the item...</string>
+    <string name="price">Price</string>
+    <string name="size">Size</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="upload_item">Upload Item</string>
 
     <array name="condition">
         <item name="new">New</item>

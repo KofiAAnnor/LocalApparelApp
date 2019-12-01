@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.myapplication.*
 import com.example.myapplication.R
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_user.*
 
 /**
@@ -33,11 +34,16 @@ class UserFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val fragPref = this.activity!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
-        hello_textview_id.text = "Hello "+fragPref.getString("EMAIL","Loser")
-        user_logout_button_id.setOnClickListener {
-            startActivity(Intent(this.activity, MainActivity::class.java))
-        }
 
+        hello_textview_id.text = "Hello "+fragPref.getString("EMAIL","Loser")
+
+
+        user_logout_button_id.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val mainAct = Intent(this.activity, MainActivity::class.java)
+            mainAct.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(mainAct)
+        }
 
         user_ItemsUpForSale_Button_id.setOnClickListener {
             Log.i(MYTAG,"You clicked the IUFS Button")

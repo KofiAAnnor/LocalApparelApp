@@ -6,20 +6,18 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.myapplication.Objects.Items
-import com.example.myapplication.Objects.MyItemsUpForSaleListAdapter
 import com.example.myapplication.Objects.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_items_up_for_sale.*
 
-
+private const val MYTAG = "myLoginAct"
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var userEmail: EditText
@@ -56,11 +54,15 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_LONG).show()
                     //instantiate my shared prefernces object
                     mPrefs = getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+
                     //findUserInformationInDatabase(email)
+
+                    //val thisUserID = globalUser!!.userID
                     val editor = mPrefs.edit()
                     editor.putString("EMAIL", email)
-                    //editor.putString("USERNAME",globalUser!!.userName)
+                    //editor.putString("USERID",thisUserID)
                     editor.apply()
+
                     val dashBoardIntent = Intent(this@LoginActivity, Dashboard::class.java)
                     dashBoardIntent.putExtra("email",userEmail.text.toString())
                     startActivity(Intent(this@LoginActivity, Dashboard::class.java))
@@ -82,20 +84,22 @@ class LoginActivity : AppCompatActivity() {
                 // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            override fun onDataChange(p0: DataSnapshot) {
-                if(p0.exists()){
-                    for(h in p0.children){
-                        val thisUser = h.getValue(User::class.java)
+            override fun onDataChange(fbUserList: DataSnapshot) {
+                if(fbUserList.exists()){
+                    Log.i(MYTAG,"YOU ARE LOOKING AT A SNAPSHOT 0")
+                    for(person in fbUserList.children){
+                        Log.i(MYTAG,"YOU ARE LOOKING AT A SNAPSHOT 1") //It doesn't go past 1
+                        val thisUser = person.getValue(User::class.java)
+                        Log.i(MYTAG,"YOU ARE LOOKING AT A SNAPSHOT 2")
                         if(thisUser!!.userEmail == email){
+                            Log.i(MYTAG,"YOU ARE LOOKING AT A SNAPSHOT 3")
                             globalUser = thisUser
                             return
                         }
                     }
                 }
             }
-
         })
-
     }
 
     private fun initializeUI() {

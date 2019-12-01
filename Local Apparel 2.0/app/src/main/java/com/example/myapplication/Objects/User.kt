@@ -10,14 +10,14 @@ class User {
     var itemsUpForSale: ArrayList<Items>? = null
 
     constructor(userID:String, userName:String, userEmail:String){
-        this.userID = userID
+        this.userID = userID    //We give them a unique ID
         this.userName = userName
         this.userEmail = userEmail
         this.itemsUpForSale = ArrayList<Items>()
     }
 
     constructor(userID:String, userName:String, userEmail:String, userImageUrl:String){
-        this.userID = userID
+        this.userID = userID    //We give them a unique ID
         this.userName = userName
         this.userEmail = userEmail
         this.userImageUrl = userImageUrl
@@ -38,5 +38,9 @@ class User {
 
     fun setZipCode(zipCode: String){
         userZipCode = zipCode
+    }
+
+    fun setImageUrl(url: String){
+        this.userImageUrl = url
     }
 }

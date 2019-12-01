@@ -43,7 +43,7 @@ class SellFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-               sell_chooseimage_button_id.setOnClickListener { selectPhoto() }
+        sell_chooseimage_button_id.setOnClickListener { selectPhoto() }
 
         sell_uploaditem_button_id.setOnClickListener {
             Toast.makeText(requireContext(),"Adding items to Store...",Toast.LENGTH_LONG)
@@ -52,16 +52,21 @@ class SellFragment : Fragment() {
 
     private fun selectPhoto() {
         Toast.makeText(activity, "Choose a photo", Toast.LENGTH_SHORT).show()
-        Log.i(MYTAG,"You just clicked the choose image Icon")
+        Log.i(MYTAG,"User Is Choosing a Photo")
 
-        //this allows s to go in their images and access their photos.
+        //this allows us to go in their images and access their photos.
         val photoSelectIntent = Intent(Intent.ACTION_PICK)
         photoSelectIntent.type = "image/*"
         startActivityForResult(photoSelectIntent, 0)
     }
 
+
+
     //I put this out here cuz it needs to be seen by OnActResult() and UploadImageToFireBaseStorage()
     var mySelectedPhotoUri: Uri? = null
+
+
+
 
     //After we come back from selecting the photo we want
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -83,13 +88,16 @@ class SellFragment : Fragment() {
         //which activated the onClickListener that calls uploadImageToFireBaseStorage()
     }
 
+
+
+
     private fun uploadImageToFireBaseStorage() {
         val itemName = editText_name_id.text.toString()
         val itemPrice = editText_price_id.text.toString()
-        val itemBrand = editText_brand_id.text.toString()
+        val itemSize = size_spinner_id.selectedItem.toString()
 
 
-        if(itemName == "" || itemPrice == "" || itemBrand == ""){
+        if(itemName == "" || itemPrice == "" || itemSize == ""){
             Toast.makeText(context,"You need to fill out the Item Parameters",Toast.LENGTH_LONG).show()
             Log.i(MYTAG,"User Needs to Fill out Item Parameters")
             return
@@ -104,12 +112,35 @@ class SellFragment : Fragment() {
         Log.i(MYTAG, "Lets Upload that image")
 
         val filename = UUID.randomUUID().toString()//give the current item a unique ID in FB STORAGE
-        val myFireBaseRef = FirebaseStorage.getInstance().getReference("/shopImages/$filename")
+
+        //KOFI'S NEW CODE
+        val myFireBaseRef = FirebaseStorage.getInstance().reference.child("/shopImages/$filename")
 
         val x = myFireBaseRef.putFile(mySelectedPhotoUri!!) //add the picture to firebase STORAGE
+
+        val urlTask = x.continueWithTask { task ->
+            if (!task.isSuccessful) {
+                task.exception?.let {
+                    throw it
+                }
+            }
+            myFireBaseRef.downloadUrl
+        }.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val downloadUri = task.result
+                Log.i(MYTAG, "LOOK RIGHT HERE(1)DOWNLOAD_URI"+downloadUri.toString())
+                saveItemToFireBaseDataBase(downloadUri.toString())
+            } else {
+            }
+        }
+        //KOFI'S NEW CODE
+
+
+        Log.i(MYTAG, "LOOK RIGHT HERE(2)SELECTED_PHOTO_URI"+mySelectedPhotoUri.toString())
+
         x.addOnSuccessListener {
             Log.i(MYTAG, "Successfully uploaded image: ${it.metadata?.path}")
-            saveItemToFireBaseDataBase()//After we upload the image we need to upload the item to database
+            //saveItemToFireBaseDataBase()//After we upload the image we need to upload the item to database
         }
         x.addOnFailureListener{
             Log.i(MYTAG, "Failed to upload the image")
@@ -122,13 +153,16 @@ class SellFragment : Fragment() {
         }
     }
 
-    private fun saveItemToFireBaseDataBase() {
+
+
+
+    private fun saveItemToFireBaseDataBase(itemUrl: String) {
         //TODO Also add the item to the users List of items.
         //It should have the same ID in both... Maybe items should have an ID param
 
         //getting the user email from shared preferences
         val fragPref = this.activity!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
-        val thisUsersEmail = fragPref.getString("EMAIL","No email").toString()
+        val thisUsersEmail = fragPref.getString("EMAIL","No email")
 
         //this is redundant, I could just pass in the values as parameters. =|
         val itemName = editText_name_id.text.toString()
@@ -138,32 +172,33 @@ class SellFragment : Fragment() {
         val itemCondition = condition_spinner_id.selectedItem.toString()
         val itemCategory = category_spinner_id.selectedItem.toString()
         val itemDescription = editText_describe_id.text.toString()
-        val myItem = Items(itemName,itemSize,itemPrice,itemBrand,itemCondition,
-            itemCategory,itemDescription)
-        myItem.setEmail(thisUsersEmail)
+        val myItem = Items(itemName,itemSize,itemPrice,itemBrand,itemCondition, itemCategory,itemDescription)
+        myItem.setEmail(thisUsersEmail!!)
+        myItem.setUrl(itemUrl)
 
 
-        //val itemID = FirebaseAuth.getInstance().uid ?: ""
-        val myRef = FirebaseDatabase.getInstance().getReference("mainShop")
-        val itemID = myRef.push().key
-        myItem.setID(itemID!!)
+        val myRef = FirebaseDatabase.getInstance().getReference("mainShop") //get FB ref
+        val itemID = myRef.push().key   //get unique ID for Item
+        myItem.setID(itemID!!)//set the Items ID
 
-        val x = myRef.child(itemID!!).setValue(myItem)
+        val x = myRef.child(itemID).setValue(myItem) //put the item in the DB
         x.addOnSuccessListener {
-            Log.i("myRegistration Act", "We saved the Item")
+            Log.i(MYTAG, "We saved the Item")
             Toast.makeText(activity, "Item Successfully Uploaded", Toast.LENGTH_SHORT).show()
             cleanUp()
         }
-
     }
+
+
+
 
     private fun cleanUp(){
         editText_name_id.setText("")
-        size_spinner_id.resetPivot()
+        size_spinner_id.setSelection(0)
         editText_price_id.setText("")
         editText_brand_id.setText("")
-        condition_spinner_id.resetPivot()
-        category_spinner_id.resetPivot()
+        condition_spinner_id.setSelection(0)
+        category_spinner_id.setSelection(0)
         editText_describe_id.setText("")
         item_image_id.setImageResource(R.drawable.photo_camera)
     }

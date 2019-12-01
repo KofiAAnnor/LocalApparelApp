@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingHorizontal="5dp"
-    android:paddingTop="2dp">
+    android:paddingTop="5dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -31,13 +31,37 @@
                 android:text="My Shirt"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <TextView
-                android:id="@+id/recycler_layout_itemPrice_id"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2000 DOLLARS! "
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/recycler_layout_itemPrice_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/price"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                <TextView
+                    android:id="@+id/recycler_layout_itemSize_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/size"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/recycler_layout_itemEmail_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/email_hint_string"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
     <LinearLayout

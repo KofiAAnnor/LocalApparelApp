@@ -45,11 +45,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     //This makes it so that when the user presses the back button, it will just go home.
-    override fun onBackPressed() {
-        return
+//    override fun onBackPressed() {
+//        return
         //if I were to uncomment return, it would just make it so that the back button does nothing.
         //The user would have to use the home button
        // moveTaskToBack(true)
-    }
+//    }
 
 }
