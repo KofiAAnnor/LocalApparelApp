@@ -121,6 +121,8 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
                 //change the information
                 theItem.setName(newItemName)
                 theItem.setBrand(newItemBrand)
+                theItem.setPrice(newItemPrice)
+                theItem.setDescription(newItemDescription)
                 dbItem.child(theItem.itemID!!).setValue(theItem).addOnSuccessListener {
                     Toast.makeText(mCtx,"Item Updated",Toast.LENGTH_LONG).show()
                 }
