@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingHorizontal="10dp"
-    android:paddingVertical="10dp">
+    android:background="@drawable/popup_container"
+    android:paddingHorizontal="20dp"
+    android:layout_marginHorizontal="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_clothes_hanger" />
+
+        <TextView
+            android:id="@+id/delete_youSure_id"
+            android:layout_width="129dp"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:text="Update Item "
+            android:textColor="@color/colorMyOrange"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/editText8"
-            android:layout_width="match_parent"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
             android:text="Name:"
-            android:textSize="30sp" />
+            android:textColor="@color/colorMyOrange"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/changeName_id"
@@ -33,15 +62,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:gravity="center">
 
-        <TextView
+    <TextView
             android:id="@+id/editText9"
-            android:layout_width="match_parent"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+
             android:text="Brand:"
-            android:textSize="30sp" />
+            android:textColor="@color/colorMyOrange"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/changeBrand_id"
@@ -51,6 +84,63 @@
             android:ems="10"
             android:hint="Enter New Brand Here"
             android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/editText10"
+            android:layout_width="145dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="Price:"
+            android:textColor="@color/colorMyOrange"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/changePrice_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Enter New Price Here"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/editText11"
+            android:layout_width="223dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Description:"
+            android:textColor="@color/colorMyOrange"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/changeDescription_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Enter New Description Here"
+            android:inputType="textPersonName" />
+
     </LinearLayout>
 
 

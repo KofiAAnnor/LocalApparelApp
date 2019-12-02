@@ -55,6 +55,14 @@ class Items {
         this.itemEmail = itemEmail
     }
 
+    fun setPrice(itemPrice: String){
+        this.itemPrice = itemPrice
+    }
+
+    fun setDescription(itemDescription: String){
+        this.itemDescription = itemDescription
+    }
+
     fun setUrl(itemUrl: String){
         this.itemUrl = itemUrl
     }

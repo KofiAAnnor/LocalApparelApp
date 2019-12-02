@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingHorizontal="5dp"
-    android:paddingTop="5dp">
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/item_container">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -16,7 +21,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/recycler_layout_imageView_id"
@@ -25,69 +31,82 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/recycler_layout_itemName_id"
-                android:layout_width="match_parent"
+                android:id="@+id/recycler_layout_itemBrand_id"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="My Shirt"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                android:layout_marginTop="10dp"
+
+                android:text="Brand"
+                android:textColor="@color/colorMyOrange"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textSize="20dp"/>
+
+
+            <TextView
+                android:id="@+id/recycler_layout_itemName_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:text="Name"
+                android:textColor="@color/colorMyOrange"
+                android:fontFamily="sans-serif-condensed-light"
+                android:textSize="25dp"/>
+
+<!--            <TextView-->
+<!--                android:id="@+id/recycler_layout_itemSize_id"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+
+<!--                android:text="Size"-->
+<!--                android:textColor="@color/colorMyBlack"-->
+<!--                android:fontFamily="sans-serif-condensed-light"-->
+<!--                android:textSize="15dp" />-->
+
+            <TextView
+                android:id="@+id/recycler_layout_itemPrice_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Price"
+                android:textColor="@color/colorMyOrange"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textSize="25dp"  />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="15dp">
 
-                <TextView
-                    android:id="@+id/recycler_layout_itemPrice_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/price"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-                <TextView
-                    android:id="@+id/recycler_layout_itemSize_id"
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/recycler_layout_DetailsButton_id"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/size"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                    android:background="@drawable/button_less_serious"
+                    android:layout_marginRight="10dp"
+
+                    android:text="DETAILS"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/colorMyOrange"
+                    android:textSize="14sp"/>
+                <Button
+                    android:id="@+id/recycler_layout_MessageButton_id"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_butn"
+
+                    android:text="EMAIL SELLER"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="@color/colorAppBackground"
+                    android:textSize="14sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/recycler_layout_itemEmail_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/email_hint_string"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-<!--        <Button-->
-<!--            android:id="@+id/recycler_layout_WIshListButton_id"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="WishList" />-->
-
-        <Button
-            android:id="@+id/recycler_layout_DetailsButton_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Details" />
-
-        <Button
-            android:id="@+id/recycler_layout_MessageButton_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Message" />
     </LinearLayout>
 </LinearLayout>

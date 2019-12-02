@@ -1,50 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="5dp">
-
-    <ImageView
-        android:id="@+id/myItemsUpForSaleLayout_imageView_id"
-        android:layout_width="match_parent"
-        android:layout_height="368dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/myItemsUpForSaleLayout_TextView_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-    <TextView
-        android:id="@+id/myItemsUpForSaleLayout_BrandTV_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+    android:layout_height="wrap_content"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="25dp"
+        android:background="@drawable/item_container">
 
-        <Button
-            android:id="@+id/iufs_layout_update_button_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Update Item" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-        <Button
-            android:id="@+id/iufs_layout_delete_button_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Delete Item" />
+        <ImageView
+            android:id="@+id/storeItemsLayout_itemImage_id"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="top"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/myItemsUpForSaleLayout_BrandTV_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Brand"
+                android:textColor="@color/colorMyOrange"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/myItemsUpForSaleLayout_TextView_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Item"
+                android:textColor="@color/colorMyOrange"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/iufs_layout_delete_button_id"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_less_serious"
+                android:layout_marginRight="10dp"
+
+                android:text="DELETE"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorMyOrange"
+                android:textSize="14sp"/>
+
+
+            <Button
+                android:id="@+id/iufs_layout_update_button_id"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_butn"
+
+                android:text="UPDATE"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/colorAppBackground"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
     </LinearLayout>
+
 
 </LinearLayout>

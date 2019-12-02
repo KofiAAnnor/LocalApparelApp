@@ -25,39 +25,42 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="name_item">Name your item</string>
-    <string name="item_price">Enter price here</string>
-    <string name="item_brand">Enter brand here</string>
-    <string name="describe_item">Briefly describe the item...</string>
+    <string name="name_item">NAME YOUR ITEM</string>
+    <string name="item_price">PRICE</string>
+    <string name="item_brand">BRAND</string>
+    <string name="describe_item">DESCRIPTION</string>
     <string name="price">Price</string>
     <string name="size">Size</string>
-    <string name="choose_image">Choose Image</string>
+    <string name="choose_image">CHOOSE IMAGE</string>
     <string name="upload_item">Upload Item</string>
 
     <array name="condition">
+        <item name="type">CONDITION</item>
         <item name="new">New</item>
-        <item name="fairly_new">Fairly New</item>
-        <item name="fair">Fair</item>
-        <item name="worn">Worn</item>
+        <item name="fairly_new">Worn 1-3 times</item>
+        <item name="fair">Worn a lot</item>
+        <item name="worn">Old</item>
         <item name="trash">Trash</item>
     </array>
 
     <array name="category">
+        <item name="type">CATEGORY</item>
         <item name="shirt">Shirt</item>
         <item name="pants">Pants</item>
         <item name="skirt">Skirt</item>
         <item name="shoes">Shoes</item>
-        <item name="underwear">Underwear</item>
         <item name="socks">Socks</item>
         <item name="jacket">Jacket</item>
+        <item name="other">Other</item>
     </array>
 
     <array name="size">
+        <item name="type">SIZE</item>
         <item name="s">Small</item>
         <item name="m">Medium</item>
         <item name="l">Large</item>
-        <item name="xl">Xtra Large</item>
-        <item name="xxl">XXtra Large</item>
+        <item name="xl">X-Large</item>
+        <item name="xxl">XX-Large</item>
     </array>
 
 </resources>

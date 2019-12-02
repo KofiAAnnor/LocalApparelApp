@@ -19,7 +19,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
         //return super.getView(position, convertView, parent)
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
         val myView: View = layoutInflater.inflate(layoutResID,null)
-
+        val itemImage = myView.findViewById<ImageView>(R.id.storeItemsLayout_itemImage_id)
         val itemNameTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_TextView_id)
         val itemBrandTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_BrandTV_id)
         val itemImageView = myView.findViewById<ImageView>(R.id.myItemsUpForSaleLayout_imageView_id)
@@ -28,9 +28,11 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
         val theItem = myItemsList[position]
 
-        itemNameTV.text = "Item Name: "+theItem.itemName
-        itemBrandTV.text = "Item Brand: "+theItem.itemBrand
-        Picasso.get().load(theItem.itemUrl).into(itemImageView)
+
+        itemNameTV.text = theItem.itemName
+        itemBrandTV.text = "Brand: "+theItem.itemBrand
+        Picasso.get().load(theItem.itemUrl).into(itemImage)
+
         updateButton.setOnClickListener {
             Toast.makeText(context,"Updating "+theItem.itemName,Toast.LENGTH_LONG).show()
             showUpdateDialog(theItem)
@@ -45,7 +47,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
     private fun showDeleteDialog(theItem: Items) {
 
         val builder = AlertDialog.Builder(mCtx)
-        builder.setTitle("Delete Item")
+        //builder.setTitle("Delete Item")
 
         val inflater = LayoutInflater.from(mCtx)
         val myDeleteView = inflater.inflate(R.layout.delete_item_dialogue_layout,null)
@@ -79,23 +81,28 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
     private fun showUpdateDialog(theItem: Items) {
         val builder = AlertDialog.Builder(mCtx)
-        builder.setTitle("Update Item")
+//        builder.setTitle("Update Item")
 
         val inflater = LayoutInflater.from(mCtx)
         val myUpdateView = inflater.inflate(R.layout.update_item_dialogue_layout,null)
 
         val changeNameETV = myUpdateView.findViewById<TextView>(R.id.changeName_id)
         val changeBrandETV = myUpdateView.findViewById<TextView>(R.id.changeBrand_id)
+        val changePriceETV = myUpdateView.findViewById<TextView>(R.id.changePrice_id)
+        val changeDescriptionETV = myUpdateView.findViewById<TextView>(R.id.changeDescription_id)
 
         //now the views in the dialogue box contain the items current values
         changeNameETV.text = theItem.itemName
         changeBrandETV.text=theItem.itemBrand
+        changePriceETV.text=theItem.itemPrice
+        changeDescriptionETV.text=theItem.itemDescription
+
 
         //set view to our builder. Whatever that means.
         builder.setView(myUpdateView)
 
 
-        builder.setPositiveButton("Update"
+        builder.setPositiveButton("UPDATE ITEM"
         ) { dialog, which ->
             //get FB reference
             val dbItem = FirebaseDatabase.getInstance().getReference("mainShop")
@@ -103,9 +110,11 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
             //get the new values that the user typed in
             val newItemName = changeNameETV.text.toString().trim()
             val newItemBrand = changeBrandETV.text.toString().trim()
+            val newItemPrice = changePriceETV.text.toString().trim()
+            val newItemDescription = changeDescriptionETV.text.toString().trim()
 
             //if they didnt give a new name or brand
-            if(newItemName.isEmpty()|| newItemBrand.isEmpty()){
+            if(newItemName.isEmpty()|| newItemBrand.isEmpty() || newItemPrice.isEmpty() || newItemDescription.isEmpty()){
                 changeNameETV.error = "Please Enter a Name"
                 changeNameETV.requestFocus()
                 //return@setPositiveButton //this is the equivalent of a return inside a lambda or inner class
@@ -113,13 +122,15 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
                 //change the information
                 theItem.setName(newItemName)
                 theItem.setBrand(newItemBrand)
+                theItem.setPrice(newItemPrice)
+                theItem.setDescription(newItemDescription)
                 dbItem.child(theItem.itemID!!).setValue(theItem).addOnSuccessListener {
                     Toast.makeText(mCtx,"Item Updated",Toast.LENGTH_LONG).show()
                 }
             }
         }
 
-        builder.setNegativeButton("No"
+        builder.setNegativeButton("CANCEL"
         ) { dialog, which ->
             //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }

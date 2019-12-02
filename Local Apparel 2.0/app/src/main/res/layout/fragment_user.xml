@@ -1,76 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="10dp"
+    android:background="@color/colorAppBackground"
     tools:context=".Fragments.UserFragment">
 
-    <Button
-        android:id="@+id/user_logout_button_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_edges_red"
-        android:text="Log Out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView_id"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hello_textview_id"
-        tools:src="@drawable/profile_avatar" />
+        android:id="@+id/imageView"
+        android:layout_width="301dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/ic_logo_profile" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/user_ItemsUpForSale_Button_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_id" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/ic_line_seperator" />
 
     <TextView
         android:id="@+id/hello_textview_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+
         android:text="Hello User"
-        android:textAlignment="center"
-        android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/colorMyOrange"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="25dp" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView_id"-->
+<!--        android:layout_width="224dp"-->
+<!--        android:layout_height="224dp"-->
+<!--        android:layout_marginTop="110dp"-->
+<!--        tools:src="@drawable/profile_avatar" />-->
+
+<!--    <View-->
+<!--        android:id="@+id/divider"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:layout_marginTop="85dp"-->
+<!--        android:background="?android:attr/listDivider" />-->
+
+
+    <LinearLayout
+        android:id="@+id/user_ItemsUpForSale_View_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/item_container">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_sell_clothes"
+            android:fontFamily="serif"
+            android:textSize="25sp" />
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Your Listings"
+            android:textColor="@color/colorMyOrange"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="30dp"/>
+
+    </LinearLayout>
+
+
 
     <Button
-        android:id="@+id/user_ItemsUpForSale_Button_id"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/rounded_edges_blue"
-        android:fontFamily="serif"
-        android:text="Clothes Up For Sale"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/user_logout_button_id"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/user_logout_button_id"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+
+        android:background="@drawable/custom_butn"
+
+        android:text="LOG OUT"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAppBackground" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

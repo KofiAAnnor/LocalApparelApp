@@ -31,22 +31,22 @@ class StoreItemsListAdapter(
         val myView: View = layoutInflater.inflate(layoutResID, null)
 
         val itemImageView = myView.findViewById<ImageView>(id.storeItemsLayout_itemImage_id)
+        val itemBrandTV = myView.findViewById<TextView>(id.storeItemsLayout_itemBrand_id)
         val itemNameTV = myView.findViewById<TextView>(id.storeItemsLayout_itemName_id)
         val itemPriceTV = myView.findViewById<TextView>(id.storeItemsLayout_itemPrice_id)
         val itemSizeTV = myView.findViewById<TextView>(id.storeItemsLayout_itemSize_id)
-        val itemEmailTV = myView.findViewById<TextView>(id.storeItemsLayout_itemEmail_id)
+        //val itemEmailTV = myView.findViewById<TextView>(id.storeItemsLayout_itemEmail_id)
         val wishListButton = myView.findViewById<Button>(id.storeItemsLayout_WishListButton_id)
         val messageButton = myView.findViewById<Button>(id.storeItemsLayout_msgButton_id)
         //Todo I wanna put an onclick listener on the item so it can show more info about the item.
         val theItem = myItemsList[position]
 
-        itemNameTV.text = "Item Name: " + theItem.itemName
+        itemBrandTV.text = theItem.itemBrand
+        itemNameTV.text = theItem.itemName
         itemPriceTV.text = "$" + theItem.itemPrice
         itemSizeTV.text = "Size: " + theItem.itemSize
-        itemEmailTV.text = "Email: " + theItem.itemEmail
+        //itemEmailTV.text = "Seller Email: " + theItem.itemEmail
         Picasso.get().load(theItem.itemUrl).into(itemImageView)
-
-
 
 
         messageButton.setOnClickListener {
@@ -60,10 +60,10 @@ class StoreItemsListAdapter(
             }
         }
         wishListButton.setOnClickListener {
-            Toast.makeText(context, "WishList", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Item Added To WishList", Toast.LENGTH_LONG).show()
         }
         itemImageView.setOnClickListener {
-            Toast.makeText(context, "Image", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "Image", Toast.LENGTH_LONG).show()
             //showItemPageDialog(theItem)
         }
 

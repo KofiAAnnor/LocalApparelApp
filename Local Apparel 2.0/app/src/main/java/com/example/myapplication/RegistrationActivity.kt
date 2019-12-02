@@ -11,6 +11,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.Objects.Items
 import com.example.myapplication.Objects.User
@@ -31,7 +32,7 @@ class RegistrationActivity : AppCompatActivity() {
     private lateinit var confirmPasswordTV: EditText
     private lateinit var zipcodeTV: EditText
     private lateinit var registerButtnView: Button
-    private lateinit var fakeregisterButtnView: Button
+    private lateinit var fakeregisterButtnView: TextView
 
     private var mAuth: FirebaseAuth? = null
 

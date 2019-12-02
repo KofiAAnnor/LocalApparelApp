@@ -23,13 +23,14 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
 
     val thisOIS = savedInstanceState
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val theItemNameTV = itemView.findViewById<TextView>(R.id.recycler_layout_itemName_id)
-        val theItemPriceTV = itemView.findViewById<TextView>(R.id.recycler_layout_itemPrice_id)
-        val theItemSizeTV = itemView.findViewById<TextView>(R.id.recycler_layout_itemSize_id)
-        val theItemEmailTV = itemView.findViewById<TextView>(R.id.recycler_layout_itemEmail_id)
-        val theDetailsButton = itemView.findViewById<Button>(R.id.recycler_layout_DetailsButton_id)
-        val theMessageButton = itemView.findViewById<Button>(R.id.recycler_layout_MessageButton_id)
-        val thePicture = itemView.findViewById<ImageView>(R.id.recycler_layout_imageView_id)
+
+        val theItemBrandTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemBrand_id)
+        val theItemNameTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemName_id)
+        val theItemPriceTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemPrice_id)
+        //val theItemSizeTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemSize_id)
+        val theDetailsButton = itemView.findViewById<Button>(com.example.myapplication.R.id.recycler_layout_DetailsButton_id)
+        val theMessageButton = itemView.findViewById<Button>(com.example.myapplication.R.id.recycler_layout_MessageButton_id)
+        val thePicture = itemView.findViewById<ImageView>(com.example.myapplication.R.id.recycler_layout_imageView_id)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
@@ -44,20 +45,20 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item: Items = myItemsList[position]
 
-        holder.theItemNameTV.text = "Item Name: " +item.itemName
+        holder.theItemBrandTV.text = item.itemBrand
+        holder.theItemNameTV.text = item.itemName
         holder.theItemPriceTV.text = "$" + item.itemPrice
-        holder.theItemSizeTV.text = "Size: " +item.itemSize
-        holder.theItemEmailTV.text = "Email: " +item.itemEmail
+        //holder.theItemSizeTV.text = item.itemSize
         Picasso.get().load(item.itemUrl).into(holder.thePicture.recycler_layout_imageView_id)
 
 
         holder.theDetailsButton.setOnClickListener {
-            Toast.makeText(mCtx,"You Want Details?",Toast.LENGTH_LONG).show()
+            //Toast.makeText(mCtx,"You Want Details?",Toast.LENGTH_LONG).show()
             showDetailedItemPageDialog(item)
         }
 
         holder.theMessageButton.setOnClickListener {
-            val emailSubject = "Hello, I would like to buy Your "+item.itemName
+            val emailSubject = "Hello, I would like to buy your "+item.itemName
 
             val uriText = "mailto:"+item.itemEmail +
                     "?subject=" + Uri.encode(emailSubject)
@@ -72,14 +73,13 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
             }
         }
 
-
     }
 
 
 
     private fun showDetailedItemPageDialog(theItem: Items) {
         val builder = AlertDialog.Builder(mCtx)
-        builder.setTitle("More Details...")
+            //builder.setTitle("More Details...")
 
         val inflater = LayoutInflater.from(mCtx)
         val detailsView = inflater.inflate(R.layout.detailed_items_dialog_layout,null)
@@ -99,9 +99,9 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
 
 
         Picasso.get().load(theItem.itemUrl).into(detailed_image)
-        detailed_name.text = "Item Name: "+theItem.itemName
+        detailed_name.text = theItem.itemName
         detailed_price.text = "$" + theItem.itemPrice
-        detailed_brand.text = "Brand: "+theItem.itemBrand
+        detailed_brand.text = theItem.itemBrand
         detailed_cond.text = "Condition: "+theItem.itemCondition
         detailed_size.text = "Size: "+theItem.itemSize
         detailed_descr.text = "Description: "+theItem.itemDescription
