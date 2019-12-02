@@ -96,7 +96,7 @@
 
         <Button
             android:id="@+id/storeItemsLayout_msgButton_id"
-            android:layout_width="190dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_butn"
 
