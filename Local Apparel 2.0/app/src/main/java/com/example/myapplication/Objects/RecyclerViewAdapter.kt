@@ -55,7 +55,7 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
 
 
         holder.theDetailsButton.setOnClickListener {
-            Toast.makeText(mCtx,"You Want Details?",Toast.LENGTH_LONG).show()
+            //Toast.makeText(mCtx,"You Want Details?",Toast.LENGTH_LONG).show()
             showDetailedItemPageDialog(item)
         }
 
@@ -78,7 +78,7 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
 
     private fun showDetailedItemPageDialog(theItem: Items) {
         val builder = AlertDialog.Builder(mCtx)
-        builder.setTitle("More Details...")
+            //builder.setTitle("More Details...")
 
         val inflater = LayoutInflater.from(mCtx)
         val detailsView = inflater.inflate(R.layout.detailed_items_dialog_layout,null)
@@ -97,9 +97,9 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
 
 
         Picasso.get().load(theItem.itemUrl).into(detailed_image)
-        detailed_name.text = "Item Name: "+theItem.itemName
+        detailed_name.text = theItem.itemName
         detailed_price.text = "$" + theItem.itemPrice
-        detailed_brand.text = "Brand: "+theItem.itemBrand
+        detailed_brand.text = theItem.itemBrand
         detailed_cond.text = "Condition: "+theItem.itemCondition
         detailed_size.text = "Size: "+theItem.itemSize
         detailed_descr.text = "Description: "+theItem.itemDescription
