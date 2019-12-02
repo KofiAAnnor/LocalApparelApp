@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.myapplication.Objects.Items
@@ -18,6 +19,8 @@ class MyItemsUpForSaleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_items_up_for_sale)
 
         myItemsUpForSaleList = mutableListOf()
+        val fragPref = this.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        val userEmail = fragPref.getString("EMAIL","Loser").toString()
 
 
         ref = FirebaseDatabase.getInstance().getReference("mainShop")
@@ -32,7 +35,10 @@ class MyItemsUpForSaleActivity : AppCompatActivity() {
                     myItemsUpForSaleList.clear()
                     for(h in p0.children){
                         val thisItem = h.getValue(Items::class.java)
-                        myItemsUpForSaleList.add(thisItem!!)
+                        if(thisItem!!.itemEmail == userEmail){
+                            myItemsUpForSaleList.add(thisItem!!)
+                        }
+
                     }
 
                     val myAdapter = MyItemsUpForSaleListAdapter(this@MyItemsUpForSaleActivity,R.layout.my_items_up_for_sale_layout,myItemsUpForSaleList)

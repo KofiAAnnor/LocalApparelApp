@@ -43,4 +43,6 @@ class User {
     fun setImageUrl(url: String){
         this.userImageUrl = url
     }
+
+    constructor(): this("","","","")
 }

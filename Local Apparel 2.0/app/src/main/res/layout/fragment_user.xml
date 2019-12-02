@@ -23,10 +23,11 @@
 
     <ImageView
         android:id="@+id/imageView_id"
-        android:layout_width="224dp"
-        android:layout_height="224dp"
-        android:layout_marginTop="110dp"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hello_textview_id"
         tools:src="@drawable/profile_avatar" />
@@ -35,8 +36,8 @@
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:layout_marginTop="85dp"
         android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/user_ItemsUpForSale_Button_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

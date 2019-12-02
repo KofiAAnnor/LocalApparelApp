@@ -27,9 +27,9 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var registerTxt: TextView
     private lateinit var mPrefs: SharedPreferences
     private var mAuth: FirebaseAuth? = null
-    private var globalUser: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.i(MYTAG,"WELCOME TO LOGIN") //It doesn't go past 1
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         mAuth = FirebaseAuth.getInstance()
@@ -40,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    var globalUserID: String = ""
     private fun loginUserAccount() {
         val email: String = userEmail.text.toString()
         val password: String = userPassword.text.toString()
@@ -59,17 +60,16 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Welcome", Toast.LENGTH_LONG).show()
                     //instantiate my shared prefernces object
                     mPrefs = getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+                    Log.i(MYTAG,"YOU ARE LOOKING AT A SNAPSHOT 0")
 
-                    //findUserInformationInDatabase(email)
 
-                    //val thisUserID = globalUser!!.userID
                     val editor = mPrefs.edit()
                     editor.putString("EMAIL", email)
-                    //editor.putString("USERID",thisUserID)
                     editor.apply()
 
                     val dashBoardIntent = Intent(this@LoginActivity, Dashboard::class.java)
                     dashBoardIntent.putExtra("email",userEmail.text.toString())
+
                     startActivity(Intent(this@LoginActivity, Dashboard::class.java))
                 } else {
                     Toast.makeText(
@@ -81,10 +81,13 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun findUserInformationInDatabase(email: String) {
-        val ref = FirebaseDatabase.getInstance().getReference("users")
 
-        ref.addValueEventListener(object: ValueEventListener {
+    private fun findUserInformationInDatabase(email: String) {
+        val ref = FirebaseDatabase.getInstance().reference
+        val query = ref.child("users")
+
+        Log.i(MYTAG,"YOU ARE LOOKING AT A SNAPSHOT 0")
+        query.addValueEventListener(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
@@ -97,8 +100,8 @@ class LoginActivity : AppCompatActivity() {
                         val thisUser = person.getValue(User::class.java)
                         Log.i(MYTAG,"YOU ARE LOOKING AT A SNAPSHOT 2")
                         if(thisUser!!.userEmail == email){
-                            Log.i(MYTAG,"YOU ARE LOOKING AT A SNAPSHOT 3")
-                            globalUser = thisUser
+                            Log.i(MYTAG,"WE FOUND THE USER")
+                            globalUserID = thisUser.userID!!
                             return
                         }
                     }

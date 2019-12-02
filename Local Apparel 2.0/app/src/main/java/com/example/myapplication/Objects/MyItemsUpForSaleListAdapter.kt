@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.myapplication.R
 import com.google.firebase.database.FirebaseDatabase
+import com.squareup.picasso.Picasso
 
 private const val MYTAG = "myAdapterTag"
 class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val myItemsList: List<Items>):
@@ -24,6 +25,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
         val itemNameTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_TextView_id)
         val itemBrandTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_BrandTV_id)
+        val itemImageView = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout__id)
         val updateButton = myView.findViewById<Button>(R.id.iufs_layout_update_button_id)
         val deleteButton = myView.findViewById<Button>(R.id.iufs_layout_delete_button_id)
 
@@ -31,7 +33,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
         itemNameTV.text = "Item Name: "+theItem.itemName
         itemBrandTV.text = "Item Brand: "+theItem.itemBrand
-
+        Picasso.get().load(theItem.itemUrl).into()
         updateButton.setOnClickListener {
             Toast.makeText(context,"Updating "+theItem.itemName,Toast.LENGTH_LONG).show()
             showUpdateDialog(theItem)
