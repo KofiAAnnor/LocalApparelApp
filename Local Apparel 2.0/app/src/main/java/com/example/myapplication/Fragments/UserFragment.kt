@@ -14,7 +14,9 @@ import android.widget.Toast
 import com.example.myapplication.*
 import com.example.myapplication.R
 import com.google.firebase.auth.FirebaseAuth
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_user.*
+import kotlinx.android.synthetic.main.recycler_layout.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -35,7 +37,8 @@ class UserFragment : Fragment() {
 
         val fragPref = this.activity!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
 
-        hello_textview_id.text = "Hello "+ fragPref.getString("EMAIL","Loser")
+        hello_textview_id.text = "Hello "+ fragPref.getString("EMAIL","Person")
+
 
 
         user_logout_button_id.setOnClickListener {

@@ -50,7 +50,6 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
         holder.theItemBrandTV.text = item.itemBrand
         holder.theItemNameTV.text = item.itemName
         holder.theItemPriceTV.text = "$" + item.itemPrice
-        //holder.theItemSizeTV.text = item.itemSize
         Picasso.get().load(item.itemUrl).into(holder.thePicture.recycler_layout_imageView_id)
 
 
