@@ -24,8 +24,9 @@
         android:layout_width="340dp"
         android:layout_height="55dp"
         android:background="@drawable/custom_butn"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop= "290dp"
+
         android:text="LOG IN"
         android:fontFamily="sans-serif-condensed-medium"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -36,9 +37,9 @@
         android:id="@+id/register_button_id"
         android:layout_width="340dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_butn"
         android:enabled="true"
+
         android:fontFamily="sans-serif-condensed-medium"
         android:text="REGISTER"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
