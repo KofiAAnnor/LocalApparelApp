@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/my_buy_frag_id"
-        android:icon="@drawable/ic_sell_clothes"
+        android:icon="@drawable/homepage"
         android:title="@string/navbar_buy_icon_name"
         />
     <item
