@@ -46,7 +46,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
     private fun showDeleteDialog(theItem: Items) {
 
         val builder = AlertDialog.Builder(mCtx)
-        builder.setTitle("Delete Item")
+        //builder.setTitle("Delete Item")
 
         val inflater = LayoutInflater.from(mCtx)
         val myDeleteView = inflater.inflate(R.layout.delete_item_dialogue_layout,null)
