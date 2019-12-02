@@ -35,7 +35,7 @@ class UserFragment : Fragment() {
 
         val fragPref = this.activity!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
 
-        hello_textview_id.text = "Hello "+fragPref.getString("EMAIL","Loser")
+        hello_textview_id.text = "Hello "+ fragPref.getString("EMAIL","Loser")
 
 
         user_logout_button_id.setOnClickListener {
@@ -45,7 +45,7 @@ class UserFragment : Fragment() {
             startActivity(mainAct)
         }
 
-        user_ItemsUpForSale_Button_id.setOnClickListener {
+        user_ItemsUpForSale_View_id.setOnClickListener {
             Log.i(MYTAG,"You clicked the IUFS Button")
             startActivity(Intent(this.activity, MyItemsUpForSaleActivity::class.java))
         }

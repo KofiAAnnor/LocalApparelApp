@@ -55,8 +55,8 @@
 
                 android:background="@drawable/custom_butn"
 
-                android:fontFamily="sans-serif-condensed-medium"
                 android:text="LOG IN"
+                android:fontFamily="sans-serif-condensed-medium"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorAppBackground" />
 

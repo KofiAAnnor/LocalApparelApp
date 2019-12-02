@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="10dp">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/item_container"
-    android:layout_marginHorizontal="20dp"
-    android:layout_marginTop="20dp">
+    android:background="@drawable/item_container">
 
     <ImageView
         android:id="@+id/storeItemsLayout_itemImage_id"
@@ -59,29 +63,30 @@
         android:textSize="25dp" />
 
 
-    <TextView
-        android:id="@+id/storeItemsLayout_itemEmail_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+<!--    <TextView-->
+<!--        android:id="@+id/storeItemsLayout_itemEmail_id"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="20dp"-->
 
-        android:text="@string/email_hint_string"
-        android:textColor="@color/colorMyBlack"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:textSize="15dp" />
+<!--        android:text="@string/email_hint_string"-->
+<!--        android:textColor="@color/colorMyBlack"-->
+<!--        android:fontFamily="sans-serif-condensed-medium"-->
+<!--        android:textSize="15dp" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp">
 
         <Button
             android:id="@+id/storeItemsLayout_WishListButton_id"
-            android:layout_width="130dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:background="@drawable/button_less_serious"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="10dp"
 
             android:text="ADD TO WISHLIST"
             android:fontFamily="sans-serif-condensed-medium"
@@ -94,7 +99,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/custom_butn"
 
-            android:text="MESSAGE SELLER"
+            android:text="EMAIL SELLER"
             android:fontFamily="sans-serif-condensed-medium"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/colorAppBackground"
@@ -103,4 +108,5 @@
 
     </LinearLayout>
 
+</LinearLayout>
 </LinearLayout>
