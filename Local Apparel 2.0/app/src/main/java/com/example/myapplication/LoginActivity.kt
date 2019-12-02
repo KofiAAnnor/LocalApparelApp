@@ -56,7 +56,7 @@ class LoginActivity : AppCompatActivity() {
         mAuth!!.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Welcome", Toast.LENGTH_LONG).show()
                     //instantiate my shared prefernces object
                     mPrefs = getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
 

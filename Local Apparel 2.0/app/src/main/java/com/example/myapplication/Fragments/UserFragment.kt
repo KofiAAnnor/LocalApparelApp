@@ -49,11 +49,6 @@ class UserFragment : Fragment() {
             Log.i(MYTAG,"You clicked the IUFS Button")
             startActivity(Intent(this.activity, MyItemsUpForSaleActivity::class.java))
         }
-
-        user_wishList_button_id.setOnClickListener {
-            Toast.makeText(activity,"Not Implemented",Toast.LENGTH_LONG).show()
-        }
-
     }
 
 }

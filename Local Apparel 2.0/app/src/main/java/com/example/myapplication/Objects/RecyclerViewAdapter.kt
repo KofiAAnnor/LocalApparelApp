@@ -1,5 +1,6 @@
 package com.example.myapplication.Objects
 
+import android.app.AlertDialog
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -14,13 +15,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recycler_layout.view.*
 
 
 
-class RecyclerView_Adapter (val myItemsList: List<Items>,val mCtx: Context,savedInstanceState: Bundle?
-) : RecyclerView.Adapter<RecyclerView_Adapter.ViewHolder>() {
+class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, savedInstanceState: Bundle?
+) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     val thisOIS = savedInstanceState
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -55,7 +57,7 @@ class RecyclerView_Adapter (val myItemsList: List<Items>,val mCtx: Context,saved
 
         holder.theDetailsButton.setOnClickListener {
             Toast.makeText(mCtx,"You Want Details?",Toast.LENGTH_LONG).show()
-            //showItemPageDialog(theItem)
+            showDetailedItemPageDialog(item)
         }
 
         holder.theMessageButton.setOnClickListener {
@@ -72,13 +74,43 @@ class RecyclerView_Adapter (val myItemsList: List<Items>,val mCtx: Context,saved
             } catch (e: ActivityNotFoundException) {
                 Toast.makeText(mCtx,e.message,Toast.LENGTH_LONG)
             }
-
         }
-
 
         holder.theWishListButton.setOnClickListener {
             Toast.makeText(mCtx,"You Want Wishlist?",Toast.LENGTH_LONG).show()
         }
+    }
 
+    private fun showDetailedItemPageDialog(theItem: Items) {
+        val builder = AlertDialog.Builder(mCtx)
+        builder.setTitle("More Details...")
+
+        val inflater = LayoutInflater.from(mCtx)
+        val detailsView = inflater.inflate(R.layout.detailed_items_dialog_layout,null)
+
+        builder.setView(detailsView)
+        val alert = builder.create()
+
+        val detailed_image = detailsView.findViewById<ImageView>(R.id.detailed_item_image_id)
+        val detailed_name = detailsView.findViewById<TextView>(R.id.detailed_item_name_id)
+        val detailed_price = detailsView.findViewById<TextView>(R.id.detailed_item_price_id)
+        val detailed_brand = detailsView.findViewById<TextView>(R.id.detailed_item_brand_id)
+        val detailed_cond = detailsView.findViewById<TextView>(R.id.detailed_item_condition_id)
+        val detailed_size = detailsView.findViewById<TextView>(R.id.detailed_item_size_id)
+        val detailed_descr = detailsView.findViewById<TextView>(R.id.detailed_item_description_id)
+        val dismissButton = detailsView.findViewById<TextView>(R.id.detailed_dismiss_button_id)
+
+
+        Picasso.get().load(theItem.itemUrl).into(detailed_image)
+        detailed_name.text = "Item Name: "+theItem.itemName
+        detailed_price.text = "$" + theItem.itemPrice
+        detailed_brand.text = "Brand: "+theItem.itemBrand
+        detailed_cond.text = "Condition: "+theItem.itemCondition
+        detailed_size.text = "Size: "+theItem.itemSize
+        detailed_descr.text = "Description: "+theItem.itemDescription
+        dismissButton.setOnClickListener {
+            alert.dismiss()
+        }
+        alert.show()
     }
 }

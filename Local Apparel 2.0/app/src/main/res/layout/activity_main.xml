@@ -44,17 +44,17 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorAppBackground" />
 
-    <Button
-        android:id="@+id/dashButton_id"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:background="@drawable/custom_butn"
-        android:text="DASHBOARD"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorMyYellow"
-        android:enabled="true"
-       />
+<!--    <Button-->
+<!--        android:id="@+id/dashButton_id"-->
+<!--        android:layout_width="340dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:background="@drawable/custom_butn"-->
+<!--        android:text="DASHBOARD"-->
+<!--        android:fontFamily="sans-serif-condensed-medium"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--        android:textColor="@color/colorMyYellow"-->
+<!--        android:enabled="true"-->
+<!--       />-->
 
 
 </LinearLayout>
