@@ -1,22 +1,40 @@
 -We can now add pictures to firebase. ALthough I'm not sure how to get them back, I keep running into this weird 
-error
+error [I lied we got pics now! LETS GOOOO!!!!]
+
+
 -We also can now add users to our database. Each user has a list of items that holds the items they are selling. 
 -We can now upload pictures from peoples phones into database. 
 	but they just go into the databse, I need to find a way to put them in the store and also in the 
-	Users list of items on firebase.
+	Users list of items on firebase. [GOT THIS TO!!! LLETS GOOO!!!]
 
 1.) Need to get chat working. Not sure if doing it in a fragemnt is the best option. 
+[BUMP THAT! lol We just made them email each other! lol]
 2.) Need to create recycler view for the items in the store. 
 	2.1) Need to make a search bar/ Filter bar 
-3.) Make the User page Say Hello to the user and also allow the User to have a profile picture 
-		Ask the user to take pictures when they first log in 
-		Figure out how to get images back from the firebase 
-4.) Try to add a wish list for items for the users
+	[This is the functionlaity that we added last night (12/1/19), this is the extra 
+	functionality that I was talking about and it's all done in the second store]
+	We Added a details button
+	We added a details dialog/view/whatever you wanna call it  
+	We added a Filter button, so the user could filter their searches, also comes with a dialog/view/whatever you wanna call it 
+3.) Make the User page Say Hello to the user and also allow the User to have a profile picture [DID THIS TOO!!]
+		Ask the user to take pictures when they first log in [DID THIS TOO!!!]
+		Figure out how to get images back from the firebase [DID THIS TOO!!!]
+4.) Try to add a wish list for items for the users [NAH fam we good... *Insert drake meme here, you know... the one where he's like saying no*]
 5.) This UI is Hideous and I did everything with constraint layouts cuz Linear us STUPID! [Akshi FIGHT ME].
 If yall wanna make any kind of changes to the UI I AM DOWN FOR IT! lol 
-6.) My hope/dream is that all we'll have to do on Sunday is just make the presentation video and THAT'S IT. 
-7.) Prevent app from going into portrait mode
+[Thanks Akshi! =) , you da best or whateva!, we're gonna need to make some desing tweeks tonight though, I'm sorry! ]
+6.) My hope/dream is that all we'll have to do on Sunday is just make the presentation video and THAT'S IT. [It wasn't exaclty this, but pretty damn close! ol]
+7.) Prevent app from going into portrait mode [DID THIS TOOO!!!!]
+
 
 Bonus:
 If there is time, which i doubt there will be[let's be real lol], we can also try to add some "settings" options. 
-Maybe some edit profile options. 
+Maybe some edit profile options. [HAAHHAHAAHAAAAAHAHAAHAHHAHA! sike.]
+
+
+
+Some new notes though [12/2/19]
+1.) Try to prevent the app form crashing when uploading photos.... it's REALY WEIRD SOMETIMES AND I DON'T KNOW WHY! >=( 
+2.) Fix Logout, sometimes it just takes you the home screen.[and that's not the move fam]
+3.) Fix that Stupid filter spinner! >=(  
+[I think once all that is done, WE will be done.]
