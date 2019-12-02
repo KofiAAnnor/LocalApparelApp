@@ -49,9 +49,9 @@
         <item name="pants">Pants</item>
         <item name="skirt">Skirt</item>
         <item name="shoes">Shoes</item>
-        <item name="underwear">Underwear</item>
         <item name="socks">Socks</item>
         <item name="jacket">Jacket</item>
+        <item name="other">Other</item>
     </array>
 
     <array name="size">

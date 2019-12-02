@@ -80,7 +80,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
     private fun showUpdateDialog(theItem: Items) {
         val builder = AlertDialog.Builder(mCtx)
-        builder.setTitle("Update Item")
+//        builder.setTitle("Update Item")
 
         val inflater = LayoutInflater.from(mCtx)
         val myUpdateView = inflater.inflate(R.layout.update_item_dialogue_layout,null)
