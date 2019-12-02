@@ -26,13 +26,12 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
 
     val thisOIS = savedInstanceState
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        val theItemBrandTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemBrand_id)
         val theItemNameTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemName_id)
         val theItemPriceTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemPrice_id)
-        val theItemSizeTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemSize_id)
-        val theItemEmailTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemEmail_id)
+        //val theItemSizeTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemSize_id)
         val theDetailsButton = itemView.findViewById<Button>(com.example.myapplication.R.id.recycler_layout_DetailsButton_id)
         val theMessageButton = itemView.findViewById<Button>(com.example.myapplication.R.id.recycler_layout_MessageButton_id)
-        val theWishListButton = itemView.findViewById<Button>(com.example.myapplication.R.id.recycler_layout_WIshListButton_id)
         val thePicture = itemView.findViewById<ImageView>(com.example.myapplication.R.id.recycler_layout_imageView_id)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -48,10 +47,10 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item: Items = myItemsList[position]
 
-        holder.theItemNameTV.text = "Item Name: " +item.itemName
+        holder.theItemBrandTV.text = item.itemBrand
+        holder.theItemNameTV.text = item.itemName
         holder.theItemPriceTV.text = "$" + item.itemPrice
-        holder.theItemSizeTV.text = "Size: " +item.itemSize
-        holder.theItemEmailTV.text = "Email: " +item.itemEmail
+        //holder.theItemSizeTV.text = item.itemSize
         Picasso.get().load(item.itemUrl).into(holder.thePicture.recycler_layout_imageView_id)
 
 
@@ -61,7 +60,7 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
         }
 
         holder.theMessageButton.setOnClickListener {
-            val emailSubject = "Hello, I would like to buy Your "+item.itemName
+            val emailSubject = "Hello, I would like to buy your "+item.itemName
 
             val uriText = "mailto:"+item.itemEmail +
                     "?subject=" + Uri.encode(emailSubject)
@@ -74,10 +73,6 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
             } catch (e: ActivityNotFoundException) {
                 Toast.makeText(mCtx,e.message,Toast.LENGTH_LONG)
             }
-        }
-
-        holder.theWishListButton.setOnClickListener {
-            Toast.makeText(mCtx,"You Want Wishlist?",Toast.LENGTH_LONG).show()
         }
     }
 
