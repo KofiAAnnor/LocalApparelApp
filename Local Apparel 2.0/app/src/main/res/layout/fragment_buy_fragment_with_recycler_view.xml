@@ -3,17 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="5dp"
     android:orientation="vertical"
+    android:paddingHorizontal="5dp"
+    android:paddingTop="5dp"
     tools:context=".Fragments.BuyFragmentWithRecyclerView">
 
-    <TextView
-        android:id="@+id/buyAgain_titleView_id"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome To The Second Store"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buyAgain_filterButton_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Filter" />
+
+        <TextView
+            android:id="@+id/buyAgain_titleView_id"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="Welcome To The Store"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_id"

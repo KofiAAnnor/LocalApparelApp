@@ -9,10 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
@@ -26,17 +23,16 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
 
     val thisOIS = savedInstanceState
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val theItemNameTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemName_id)
-        val theItemPriceTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemPrice_id)
-        val theItemSizeTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemSize_id)
-        val theItemEmailTV = itemView.findViewById<TextView>(com.example.myapplication.R.id.recycler_layout_itemEmail_id)
-        val theDetailsButton = itemView.findViewById<Button>(com.example.myapplication.R.id.recycler_layout_DetailsButton_id)
-        val theMessageButton = itemView.findViewById<Button>(com.example.myapplication.R.id.recycler_layout_MessageButton_id)
-        val theWishListButton = itemView.findViewById<Button>(com.example.myapplication.R.id.recycler_layout_WIshListButton_id)
-        val thePicture = itemView.findViewById<ImageView>(com.example.myapplication.R.id.recycler_layout_imageView_id)
+        val theItemNameTV = itemView.findViewById<TextView>(R.id.recycler_layout_itemName_id)
+        val theItemPriceTV = itemView.findViewById<TextView>(R.id.recycler_layout_itemPrice_id)
+        val theItemSizeTV = itemView.findViewById<TextView>(R.id.recycler_layout_itemSize_id)
+        val theItemEmailTV = itemView.findViewById<TextView>(R.id.recycler_layout_itemEmail_id)
+        val theDetailsButton = itemView.findViewById<Button>(R.id.recycler_layout_DetailsButton_id)
+        val theMessageButton = itemView.findViewById<Button>(R.id.recycler_layout_MessageButton_id)
+        val thePicture = itemView.findViewById<ImageView>(R.id.recycler_layout_imageView_id)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(com.example.myapplication.R.layout.recycler_layout,parent,false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.recycler_layout,parent,false)
 
         return ViewHolder(v)
     }
@@ -76,10 +72,10 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
             }
         }
 
-        holder.theWishListButton.setOnClickListener {
-            Toast.makeText(mCtx,"You Want Wishlist?",Toast.LENGTH_LONG).show()
-        }
+
     }
+
+
 
     private fun showDetailedItemPageDialog(theItem: Items) {
         val builder = AlertDialog.Builder(mCtx)
@@ -98,6 +94,7 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
         val detailed_cond = detailsView.findViewById<TextView>(R.id.detailed_item_condition_id)
         val detailed_size = detailsView.findViewById<TextView>(R.id.detailed_item_size_id)
         val detailed_descr = detailsView.findViewById<TextView>(R.id.detailed_item_description_id)
+        val detailed_category = detailsView.findViewById<TextView>(R.id.detailed_item_category_id)
         val dismissButton = detailsView.findViewById<TextView>(R.id.detailed_dismiss_button_id)
 
 
@@ -108,6 +105,7 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
         detailed_cond.text = "Condition: "+theItem.itemCondition
         detailed_size.text = "Size: "+theItem.itemSize
         detailed_descr.text = "Description: "+theItem.itemDescription
+        detailed_category.text = "Category: "+theItem.itemCategory
         dismissButton.setOnClickListener {
             alert.dismiss()
         }

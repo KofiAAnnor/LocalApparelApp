@@ -50,7 +50,6 @@ class UserFragment : Fragment() {
 
         mDatabaseReference.addValueEventListener(object :ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 Log.i(MYTAG,p0.message)
             }
 

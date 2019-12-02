@@ -69,12 +69,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/recycler_layout_WIshListButton_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="WishList" />
+<!--        <Button-->
+<!--            android:id="@+id/recycler_layout_WIshListButton_id"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:text="WishList" />-->
 
         <Button
             android:id="@+id/recycler_layout_DetailsButton_id"
