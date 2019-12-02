@@ -31,6 +31,7 @@ class StoreItemsListAdapter(
         val myView: View = layoutInflater.inflate(layoutResID, null)
 
         val itemImageView = myView.findViewById<ImageView>(id.storeItemsLayout_itemImage_id)
+        val itemBrandTV = myView.findViewById<TextView>(id.storeItemsLayout_itemBrand_id)
         val itemNameTV = myView.findViewById<TextView>(id.storeItemsLayout_itemName_id)
         val itemPriceTV = myView.findViewById<TextView>(id.storeItemsLayout_itemPrice_id)
         val itemSizeTV = myView.findViewById<TextView>(id.storeItemsLayout_itemSize_id)
@@ -40,10 +41,11 @@ class StoreItemsListAdapter(
         //Todo I wanna put an onclick listener on the item so it can show more info about the item.
         val theItem = myItemsList[position]
 
-        itemNameTV.text = "Item Name: " + theItem.itemName
+        itemBrandTV.text = theItem.itemBrand
+        itemNameTV.text = theItem.itemName
         itemPriceTV.text = "$" + theItem.itemPrice
         itemSizeTV.text = "Size: " + theItem.itemSize
-        itemEmailTV.text = "Email: " + theItem.itemEmail
+        itemEmailTV.text = "Seller Email: " + theItem.itemEmail
         Picasso.get().load(theItem.itemUrl).into(itemImageView)
 
 

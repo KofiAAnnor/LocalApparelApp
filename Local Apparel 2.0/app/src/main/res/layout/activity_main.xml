@@ -40,8 +40,9 @@
         android:background="@drawable/custom_butn"
         android:enabled="true"
 
-        android:fontFamily="sans-serif-condensed-medium"
+
         android:text="REGISTER"
+        android:fontFamily="sans-serif-condensed-medium"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorAppBackground" />
 
