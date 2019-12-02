@@ -6,12 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.example.myapplication.R
 import com.google.firebase.database.FirebaseDatabase
+import com.squareup.picasso.Picasso
 
 private const val MYTAG = "myAdapterTag"
 class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val myItemsList: List<Items>):
@@ -21,7 +19,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
         //return super.getView(position, convertView, parent)
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
         val myView: View = layoutInflater.inflate(layoutResID,null)
-
+        val itemImage = myView.findViewById<ImageView>(R.id.storeItemsLayout_itemImage_id)
         val itemNameTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_TextView_id)
         val itemBrandTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_BrandTV_id)
         val updateButton = myView.findViewById<Button>(R.id.iufs_layout_update_button_id)
@@ -29,8 +27,10 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
         val theItem = myItemsList[position]
 
-        itemNameTV.text = "Item Name: "+theItem.itemName
-        itemBrandTV.text = "Item Brand: "+theItem.itemBrand
+
+        itemNameTV.text = theItem.itemName
+        itemBrandTV.text = "Brand: "+theItem.itemBrand
+        Picasso.get().load(theItem.itemUrl).into(itemImage)
 
         updateButton.setOnClickListener {
             Toast.makeText(context,"Updating "+theItem.itemName,Toast.LENGTH_LONG).show()
