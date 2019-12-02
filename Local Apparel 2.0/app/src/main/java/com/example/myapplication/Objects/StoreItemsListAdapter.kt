@@ -60,10 +60,10 @@ class StoreItemsListAdapter(
             }
         }
         wishListButton.setOnClickListener {
-            Toast.makeText(context, "WishList", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "Item Added To WishList", Toast.LENGTH_LONG).show()
         }
         itemImageView.setOnClickListener {
-            Toast.makeText(context, "Image", Toast.LENGTH_LONG).show()
+            //Toast.makeText(context, "Image", Toast.LENGTH_LONG).show()
             //showItemPageDialog(theItem)
         }
 
