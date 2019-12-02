@@ -12,7 +12,7 @@ error
 		Ask the user to take pictures when they first log in 
 		Figure out how to get images back from the firebase 
 4.) Try to add a wish list for items for the users
-5.) This UI is Hideous and I did everything with constraint layouts cuz Linear us STUPID! [Akshi FIGHT ME].
+5.) This UI is Hideous and I did everything with constraint layouts cuz Linear us STUPID! [Akshi FIGHT ME] - 
 If yall wanna make any kind of changes to the UI I AM DOWN FOR IT! lol 
 6.) My hope/dream is that all we'll have to do on Sunday is just make the presentation video and THAT'S IT. 
 7.) Prevent app from going into portrait mode
