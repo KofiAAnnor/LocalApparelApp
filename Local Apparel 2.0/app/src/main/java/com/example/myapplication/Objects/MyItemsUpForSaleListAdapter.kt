@@ -87,16 +87,21 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
         val changeNameETV = myUpdateView.findViewById<TextView>(R.id.changeName_id)
         val changeBrandETV = myUpdateView.findViewById<TextView>(R.id.changeBrand_id)
+        val changePriceETV = myUpdateView.findViewById<TextView>(R.id.changePrice_id)
+        val changeDescriptionETV = myUpdateView.findViewById<TextView>(R.id.changeDescription_id)
 
         //now the views in the dialogue box contain the items current values
         changeNameETV.text = theItem.itemName
         changeBrandETV.text=theItem.itemBrand
+        changePriceETV.text=theItem.itemPrice
+        changeDescriptionETV.text=theItem.itemDescription
+
 
         //set view to our builder. Whatever that means.
         builder.setView(myUpdateView)
 
 
-        builder.setPositiveButton("Update"
+        builder.setPositiveButton("UPDATE ITEM"
         ) { dialog, which ->
             //get FB reference
             val dbItem = FirebaseDatabase.getInstance().getReference("mainShop")
@@ -104,9 +109,11 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
             //get the new values that the user typed in
             val newItemName = changeNameETV.text.toString().trim()
             val newItemBrand = changeBrandETV.text.toString().trim()
+            val newItemPrice = changePriceETV.text.toString().trim()
+            val newItemDescription = changeDescriptionETV.text.toString().trim()
 
             //if they didnt give a new name or brand
-            if(newItemName.isEmpty()|| newItemBrand.isEmpty()){
+            if(newItemName.isEmpty()|| newItemBrand.isEmpty() || newItemPrice.isEmpty() || newItemDescription.isEmpty()){
                 changeNameETV.error = "Please Enter a Name"
                 changeNameETV.requestFocus()
                 //return@setPositiveButton //this is the equivalent of a return inside a lambda or inner class
@@ -120,7 +127,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
             }
         }
 
-        builder.setNegativeButton("No"
+        builder.setNegativeButton("CANCEL"
         ) { dialog, which ->
             //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
