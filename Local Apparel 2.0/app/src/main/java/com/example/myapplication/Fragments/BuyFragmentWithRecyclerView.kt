@@ -24,7 +24,7 @@ import java.lang.Integer.parseInt
 /**
  * A simple [Fragment] subclass.
  */
-private const val MYTAG = "myFragWithRecycle"
+private const val MYTAG = "myRecF"
 class BuyFragmentWithRecyclerView : Fragment() {
 
     lateinit var ref: DatabaseReference
@@ -97,8 +97,8 @@ class BuyFragmentWithRecyclerView : Fragment() {
             Log.i(MYTAG,"MAX SEARCH PRICE: $maxPrice")
             Log.i(MYTAG,"SEARCH CATEGORY: $category")
             Log.i(MYTAG,"SEARCH SIZE: $size")
-            alert.dismiss()
-
+            //alert.dismiss()
+                        //Jacket, Love, 200, XXtra Large
             //KOFI MAGIC******************
 
             ref = FirebaseDatabase.getInstance().reference
@@ -116,12 +116,22 @@ class BuyFragmentWithRecyclerView : Fragment() {
                             val thisItem = items.getValue(Items::class.java)
                             //val itemName = thisItem!!.itemName.toString()
                             //Log.i(MYTAG, "THE ITEM NAME IS $itemName")
+
                             val priceQ = thisItem?.itemPrice
-                            val priceI = parseInt(priceQ.toString())
-                            val priceMin = parseInt(minPrice.toString())
-                            val priceMax = parseInt(maxPrice.toString())
+                            val priceI = priceQ.toString().toInt()
+                            Log.i(MYTAG, "Price I: $priceI")
+
+                            val priceMin = minPrice.toString().toInt()
+                            Log.i(MYTAG,"Min Price: $minPrice")
+
+                            val priceMax = maxPrice.toString().toInt()
+                            Log.i(MYTAG,"Max Price: $minPrice")
+
                             val sizev = thisItem?.itemSize
+                            Log.i(MYTAG,"Size: $sizev")
+
                             val categoryv = thisItem?.itemCategory
+                            Log.i(MYTAG,"Category: $categoryv")
 
                             if(priceI in priceMin..priceMax &&sizev.toString()==(size)&&categoryv.toString()==(category)) {
                                 storeItemsList.add(thisItem!!)

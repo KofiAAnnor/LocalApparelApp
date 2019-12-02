@@ -17,7 +17,7 @@
                 android:id="@+id/filter_min_ETV_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:ems="10"
                 android:hint="Enter Min Price"
                 android:inputType="number" />
@@ -26,7 +26,7 @@
                 android:id="@+id/filter_max_ETV_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:ems="10"
                 android:hint="Enter Max Price"
                 android:inputType="number" />
@@ -35,14 +35,14 @@
                 android:id="@+id/filter_category_spinner_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:entries="@array/category" />
 
             <Spinner
                 android:id="@+id/filter_size_spinner_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="10dp"
                 android:entries="@array/size" />
 
             <LinearLayout
