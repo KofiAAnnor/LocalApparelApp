@@ -74,7 +74,7 @@ class BuyFragmentWithRecyclerView : Fragment() {
 
     private fun showFilterDialog(savedInstanceState: Bundle?) {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Select Filters")
+        //builder.setTitle("Select Filters")
         val inflater = LayoutInflater.from(requireContext())
         val filterView = inflater.inflate(R.layout.filter_dialog_layout,null)
         builder.setView(filterView)

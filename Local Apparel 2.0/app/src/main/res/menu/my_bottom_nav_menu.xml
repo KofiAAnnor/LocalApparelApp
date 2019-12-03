@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item-->
+<!--        android:id="@+id/my_buy_frag_id"-->
+<!--        android:icon="@drawable/homepage"-->
+<!--        android:title="@string/navbar_buy_icon_name"-->
+<!--        />-->
     <item
-        android:id="@+id/my_buy_frag_id"
-        android:icon="@drawable/homepage"
-        android:title="@string/navbar_buy_icon_name"
+        android:id="@+id/my_buyAgain_frag_id"
+        android:icon="@drawable/ic_send_message"
+        android:title="@string/buy_again"
         />
     <item
         android:id="@+id/my_sell_frag_id"
         android:icon="@drawable/photo_camera"
         android:title="@string/navbar_sell_icon_name"
         />
-    <item
-        android:id="@+id/my_buyAgain_frag_id"
-        android:icon="@drawable/ic_send_message"
-        android:title="@string/buy_again"
-        />
+
     <item
         android:id="@+id/my_user_frag_id"
         android:icon="@drawable/ic_avatar"

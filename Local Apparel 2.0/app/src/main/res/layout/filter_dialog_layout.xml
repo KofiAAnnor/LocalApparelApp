@@ -85,27 +85,28 @@
                 android:layout_marginTop="25dp">
 
                 <Button
+                    android:id="@+id/filter_Cancel_Button_id"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_butn"
+                    android:layout_marginRight="20dp"
+
+                    android:text="CANCEL"
+                    android:textColor="@color/colorAppBackground"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="15dp"/>
+
+                <Button
                     android:id="@+id/filter_Accept_Button_id"
-                    android:layout_width="150dp"
+                    android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_less_serious"
-                    android:layout_marginRight="20dp"
 
                     android:text="FILTER"
                     android:textColor="@color/colorMyOrange"
                     android:fontFamily="sans-serif-condensed-medium"
                     android:textSize="15dp"/>
 
-                <Button
-                    android:id="@+id/filter_Cancel_Button_id"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/custom_butn"
-
-                    android:text="CANCEL"
-                    android:textColor="@color/colorAppBackground"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:textSize="15dp"/>
             </LinearLayout>
 
         </LinearLayout>

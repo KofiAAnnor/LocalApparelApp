@@ -30,7 +30,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
 
 
         itemNameTV.text = theItem.itemName
-        itemBrandTV.text = "Brand: "+theItem.itemBrand
+        itemBrandTV.text = theItem.itemBrand
         Picasso.get().load(theItem.itemUrl).into(itemImage)
 
         updateButton.setOnClickListener {

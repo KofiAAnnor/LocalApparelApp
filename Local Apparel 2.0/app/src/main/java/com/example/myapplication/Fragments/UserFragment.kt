@@ -58,11 +58,15 @@ class UserFragment : Fragment() {
                 Log.i(MYTAG,"USER HAS BEEN ACCESSED IN DATABASE!")
 
                 val name = currUser!!.userName
+                val email = currUser!!.userEmail
+                val zipcode = currUser!!.userZipCode
                 val imageURL = currUser!!.userImageUrl
 
                 //imageView_id
                 hello_textview_id.text = "Hello "+name+"!"
-                //Picasso.get().load(imageURL).into(profile_imageView_id)
+                email_textview_id.text = email
+                zipcode_textview_id.text = "Zipcode: "+zipcode
+                Picasso.get().load(imageURL).into(profile_imageView_id)
             }
 
         })
