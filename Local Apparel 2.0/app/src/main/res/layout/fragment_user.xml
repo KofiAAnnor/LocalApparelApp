@@ -68,9 +68,9 @@
         android:layout_marginTop="5dp"
 
         android:text="207400"
-        android:textColor="@color/colorMyBlack"
+        android:textColor="@color/colorMyOrange"
         android:fontFamily="sans-serif-condensed-light"
-        android:textSize="20dp" />
+        android:textSize="18dp" />
 
     <LinearLayout
         android:id="@+id/user_ItemsUpForSale_View_id"
