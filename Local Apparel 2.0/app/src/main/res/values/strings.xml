@@ -49,7 +49,6 @@
         <item name="pants">Pants</item>
         <item name="skirt">Skirt</item>
         <item name="shoes">Shoes</item>
-        <item name="socks">Socks</item>
         <item name="jacket">Jacket</item>
         <item name="other">Other</item>
     </array>
@@ -61,6 +60,7 @@
         <item name="l">Large</item>
         <item name="xl">X-Large</item>
         <item name="xxl">XX-Large</item>
+        <item name="na">N/A</item>
     </array>
 
 </resources>
