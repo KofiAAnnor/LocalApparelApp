@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_user.*
+import kotlinx.android.synthetic.main.recycler_layout.view.*
 
 /**
  * A simple [Fragment] subclass.
@@ -38,6 +39,7 @@ class UserFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
 
         mAuth = FirebaseAuth.getInstance()
@@ -64,6 +66,7 @@ class UserFragment : Fragment() {
             }
 
         })
+
 
 
 
