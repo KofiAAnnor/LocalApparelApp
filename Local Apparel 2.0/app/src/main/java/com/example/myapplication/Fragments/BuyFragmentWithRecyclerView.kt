@@ -2,6 +2,7 @@ package com.example.myapplication.Fragments
 
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -16,6 +17,7 @@ import com.example.myapplication.Objects.RecyclerViewAdapter
 import com.example.myapplication.Objects.StoreItemsListAdapter
 
 import com.example.myapplication.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_buy.*
 import kotlinx.android.synthetic.main.fragment_buy_fragment_with_recycler_view.*
@@ -46,7 +48,8 @@ class BuyFragmentWithRecyclerView : Fragment() {
 
         storeItemsList = mutableListOf()
         ref = FirebaseDatabase.getInstance().getReference("/mainShop")
-
+        var mPrefs = getActivity()!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        var email = mPrefs.getString("EMAIL", "DEFAULT")
         ref.addValueEventListener(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 Toast.makeText(requireContext(),p0.message,Toast.LENGTH_LONG).show()
@@ -57,8 +60,11 @@ class BuyFragmentWithRecyclerView : Fragment() {
                     storeItemsList.clear()
                     for(items in mainShop.children){
                         val thisItem = items.getValue(Items::class.java)
-                        storeItemsList.add(thisItem!!)
-                    }
+                        var itememail = thisItem!!.itemEmail
+
+                        if (itememail!=email){
+                            storeItemsList.add(thisItem!!)
+                        }                    }
                     val myAdapter = RecyclerViewAdapter(storeItemsList,requireContext(),savedInstanceState)
                     recycler_view_id.adapter = myAdapter
                 }
@@ -90,11 +96,14 @@ class BuyFragmentWithRecyclerView : Fragment() {
             var max_price_filter = maxTV.text.toString().toInt()
             var category = catSpinner.selectedItem.toString()
             var size = sizeSpinner.selectedItem.toString()
+            var mPrefs = getActivity()!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+            var email = mPrefs.getString("EMAIL", "DEFAULT")
 
             Log.i(MYTAG,"MIN SEARCH PRICE: $min_price_filter")
             Log.i(MYTAG,"MAX SEARCH PRICE: $max_price_filter")
             Log.i(MYTAG,"SEARCH CATEGORY: $category")
             Log.i(MYTAG,"SEARCH SIZE: $size")
+            Log.i(MYTAG,"SEARCH CURRENT EMAIL: $email")
 
            ref = FirebaseDatabase.getInstance().reference
             val filterQuery = ref.child("mainShop")
@@ -112,7 +121,10 @@ class BuyFragmentWithRecyclerView : Fragment() {
                             var price = thisItem!!.itemPrice!!.toInt()
                             var itemsize = thisItem!!.itemSize
                             var itemcategory = thisItem!!.itemCategory
-                            if (price in min_price_filter..max_price_filter && size == itemsize && itemcategory == category){
+                            var itememail = thisItem!!.itemEmail
+
+
+                            if (price in min_price_filter..max_price_filter && size == itemsize && itemcategory == category&&itememail!=email){
                                 storeItemsList.add(thisItem!!)
                             }
                             val myAdapter = RecyclerViewAdapter(storeItemsList,requireContext(),savedInstanceState)
