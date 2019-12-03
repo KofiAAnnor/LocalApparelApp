@@ -8,7 +8,6 @@ import android.widget.Toast
 import com.google.firebase.FirebaseApp
 
 class MainActivity : AppCompatActivity() {
-    //private lateinit var dashBtn: Button
     private lateinit var registerBtn: Button
     private lateinit var loginBtn: Button
 
@@ -22,11 +21,6 @@ class MainActivity : AppCompatActivity() {
         //method created at the bttom
         initializeViews()
 
-        //dashBtn.setOnClickListener {
-           // Toast.makeText(applicationContext, "You used Dash Button to get to the dash board", Toast.LENGTH_LONG).show()
-            //startActivity(Intent(this@MainActivity, Dashboard::class.java))
-        //}
-
         registerBtn.setOnClickListener {
            // Toast.makeText(applicationContext, "You Just Decided to Sign Up", Toast.LENGTH_LONG).show()
             startActivity(Intent(this@MainActivity, RegistrationActivity::class.java))
@@ -39,10 +33,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeViews() {
-        //dashBtn = findViewById(R.id.dashButton_id)
+
         registerBtn = findViewById(R.id.register_button_id)
         loginBtn = findViewById(R.id.login_button_id)
     }
+
 
     //This makes it so that when the user presses the back button, it will just go home.
 //    override fun onBackPressed() {

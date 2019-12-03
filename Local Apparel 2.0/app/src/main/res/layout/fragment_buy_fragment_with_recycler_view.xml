@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     android:gravity="center_horizontal"
     android:padding="10dp"
     android:background="@color/colorAppBackground"
     tools:context=".Fragments.BuyFragmentWithRecyclerView">
+
 
 <!--    <TextView-->
 <!--        android:id="@+id/buyAgain_titleView_id"-->
@@ -17,6 +17,12 @@
 <!--        android:text="Welcome To The Second Store"-->
 <!--        android:textAlignment="center"-->
 <!--        android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+    <Button
+        android:id="@+id/buyAgain_filterButton_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter" />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="355dp"
@@ -29,4 +35,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginVertical="20dp" />
+
+
 </LinearLayout>

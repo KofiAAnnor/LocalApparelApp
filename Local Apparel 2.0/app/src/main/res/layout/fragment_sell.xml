@@ -95,15 +95,16 @@
                 android:inputType="textMultiLine" />
 
 
-                <Button
-                    android:id="@+id/sell_uploaditem_button_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/custom_butn"
-                    android:layout_marginTop="20dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/colorAppBackground"
-                    android:text="@string/upload_item" />
+            <Button
+                android:id="@+id/sell_uploaditem_button_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/custom_butn"
+                android:text="@string/upload_item"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/colorAppBackground" />
 
 
         </LinearLayout>

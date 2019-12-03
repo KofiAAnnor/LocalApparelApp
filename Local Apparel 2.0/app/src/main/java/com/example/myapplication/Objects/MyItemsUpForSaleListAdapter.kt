@@ -22,7 +22,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
         val itemImage = myView.findViewById<ImageView>(R.id.storeItemsLayout_itemImage_id)
         val itemNameTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_TextView_id)
         val itemBrandTV = myView.findViewById<TextView>(R.id.myItemsUpForSaleLayout_BrandTV_id)
-        val itemImageView = myView.findViewById<ImageView>(R.id.myItemsUpForSaleLayout_imageView_id)
+        val itemImageView = myView.findViewById<ImageView>(R.id.storeItemsLayout_itemImage_id)
         val updateButton = myView.findViewById<Button>(R.id.iufs_layout_update_button_id)
         val deleteButton = myView.findViewById<Button>(R.id.iufs_layout_delete_button_id)
 

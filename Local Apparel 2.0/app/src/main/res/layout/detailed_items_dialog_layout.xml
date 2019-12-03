@@ -54,16 +54,6 @@
                 android:textSize="25dp" />
 
             <TextView
-                android:id="@+id/detailed_item_category_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/rounded_edges_light_blue"
-                android:paddingLeft="5dp"
-                android:text="Sample Text"
-                android:textSize="25sp" />
-
-            <TextView
                 android:id="@+id/detailed_item_price_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

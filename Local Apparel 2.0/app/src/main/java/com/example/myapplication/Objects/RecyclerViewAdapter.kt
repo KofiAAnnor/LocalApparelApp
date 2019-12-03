@@ -94,7 +94,6 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
         val detailed_cond = detailsView.findViewById<TextView>(R.id.detailed_item_condition_id)
         val detailed_size = detailsView.findViewById<TextView>(R.id.detailed_item_size_id)
         val detailed_descr = detailsView.findViewById<TextView>(R.id.detailed_item_description_id)
-        val detailed_category = detailsView.findViewById<TextView>(R.id.detailed_item_category_id)
         val dismissButton = detailsView.findViewById<TextView>(R.id.detailed_dismiss_button_id)
 
 
@@ -105,7 +104,6 @@ class RecyclerViewAdapter (val myItemsList: List<Items>, val mCtx: Context, save
         detailed_cond.text = "Condition: "+theItem.itemCondition
         detailed_size.text = "Size: "+theItem.itemSize
         detailed_descr.text = "Description: "+theItem.itemDescription
-        detailed_category.text = "Category: "+theItem.itemCategory
         dismissButton.setOnClickListener {
             alert.dismiss()
         }
