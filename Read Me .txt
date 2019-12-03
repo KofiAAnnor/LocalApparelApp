@@ -11,12 +11,13 @@ error [I lied we got pics now! LETS GOOOO!!!!]
 [BUMP THAT! lol We just made them email each other! lol]
 2.) Need to create recycler view for the items in the store. 
 	2.1) Need to make a search bar/ Filter bar 
+<<<<<<< HEAD
 3.) Make the User page Say Hello to the user and also allow the User to have a profile picture 
 		Ask the user to take pictures when they first log in 
 		Figure out how to get images back from the firebase 
 4.) Try to add a wish list for items for the users
 5.) This UI is Hideous and I did everything with constraint layouts cuz Linear us STUPID! [Akshi FIGHT ME] - 
-
+=======
 	[This is the functionlaity that we added last night (12/1/19), this is the extra 
 	functionality that I was talking about and it's all done in the second store]
 	We Added a details button
@@ -27,7 +28,7 @@ error [I lied we got pics now! LETS GOOOO!!!!]
 		Figure out how to get images back from the firebase [DID THIS TOO!!!]
 4.) Try to add a wish list for items for the users [NAH fam we good... *Insert drake meme here, you know... the one where he's like saying no*]
 5.) This UI is Hideous and I did everything with constraint layouts cuz Linear us STUPID! [Akshi FIGHT ME].
-
+>>>>>>> a56eedb56a2c0a450965387766e85ed6eaed06c3
 If yall wanna make any kind of changes to the UI I AM DOWN FOR IT! lol 
 [Thanks Akshi! =) , you da best or whateva!, we're gonna need to make some desing tweeks tonight though, I'm sorry! ]
 6.) My hope/dream is that all we'll have to do on Sunday is just make the presentation video and THAT'S IT. [It wasn't exaclty this, but pretty damn close! ol]

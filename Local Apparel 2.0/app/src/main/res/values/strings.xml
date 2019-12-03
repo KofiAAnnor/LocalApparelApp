@@ -44,12 +44,12 @@
 
     <array name="category">
         <item name="type">CATEGORY</item>
-        <item name="shirt">Shirt</item>
-        <item name="pants">Pants</item>
-        <item name="skirt">Skirt</item>
-        <item name="shoes">Shoes</item>
-        <item name="jacket">Jacket</item>
-        <item name="other">Other</item>
+        <item name="Shirt">Shirt</item>
+        <item name="Pants">Pants</item>
+        <item name="Skirt">Skirt</item>
+        <item name="Footwear">Footwear</item>
+        <item name="Jacket">Jacket</item>
+        <item name="Other">Other</item>
     </array>
 
     <array name="size">
