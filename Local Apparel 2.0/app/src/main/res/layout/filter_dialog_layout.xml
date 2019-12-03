@@ -2,7 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/popup_container"
+    android:layout_marginHorizontal="20dp"
+    android:gravity="center">
+
+        <TextView
+            android:id="@+id/delete_youSure_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed-medium"
+
+            android:gravity="center"
+            android:text="Filter Items"
+            android:textColor="@color/colorMyOrange"
+            android:textSize="30sp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -11,58 +25,87 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/filter_min_ETV_id"
-                android:layout_width="match_parent"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="Enter Min Price"
+                android:layout_marginRight="25dp"
+                android:hint="Min Price"
                 android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/filter_max_ETV_id"
-                android:layout_width="match_parent"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:ems="10"
-                android:hint="Enter Max Price"
+                android:hint="Max Price"
                 android:inputType="number" />
+        </LinearLayout>
 
             <Spinner
                 android:id="@+id/filter_category_spinner_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
                 android:entries="@array/category" />
 
             <Spinner
                 android:id="@+id/filter_size_spinner_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
                 android:entries="@array/size" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="25dp">
 
                 <Button
                     android:id="@+id/filter_Accept_Button_id"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Filter" />
+                    android:background="@drawable/button_less_serious"
+                    android:layout_marginRight="20dp"
+
+                    android:text="FILTER"
+                    android:textColor="@color/colorMyOrange"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="15dp"/>
 
                 <Button
                     android:id="@+id/filter_Cancel_Button_id"
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@android:string/cancel" />
+                    android:background="@drawable/custom_butn"
+
+                    android:text="CANCEL"
+                    android:textColor="@color/colorAppBackground"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:textSize="15dp"/>
             </LinearLayout>
 
         </LinearLayout>

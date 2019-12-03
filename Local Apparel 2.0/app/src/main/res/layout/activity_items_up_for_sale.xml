@@ -12,9 +12,14 @@ tools:context=".MyItemsUpForSaleActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="247dp"
+        android:layout_width="216dp"
         android:layout_height="53dp"
         android:background="@drawable/ic_logo_sell" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_line_seperator" />
 
     <ListView
         android:id="@+id/my_IUFS_listView_id"

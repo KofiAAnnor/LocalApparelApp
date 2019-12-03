@@ -61,7 +61,7 @@ class UserFragment : Fragment() {
                 val imageURL = currUser!!.userImageUrl
 
                 //imageView_id
-                hello_textview_id.text = "Hello "+name
+                hello_textview_id.text = "Hello "+name+"!"
                 //Picasso.get().load(imageURL).into(profile_imageView_id)
             }
 
