@@ -125,8 +125,12 @@ class BuyFragmentWithRecyclerView : Fragment() {
                             var itemsize = thisItem!!.itemSize
                             var itemcategory = thisItem!!.itemCategory
                             var itememail = thisItem!!.itemEmail
-
-
+                            if(category=="CATEGORY"){
+                                itemcategory = "CATEGORY"
+                            }
+                            if(size=="SIZE"){
+                                itemsize = "SIZE"
+                            }
                             if (price in min_price_filter..max_price_filter && size == itemsize && itemcategory == category&&itememail!=email){
                                 storeItemsList.add(thisItem!!)
                             }

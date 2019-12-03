@@ -79,7 +79,7 @@ class UserFragment : Fragment() {
             val mainAct = Intent(this.activity, MainActivity::class.java)
             //mainAct.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             FirebaseAuth.getInstance().signOut()
-            mainAct.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            //mainAct.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(mainAct)
         }
 
