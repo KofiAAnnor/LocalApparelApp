@@ -37,10 +37,9 @@
     <array name="condition">
         <item name="type">CONDITION</item>
         <item name="new">New</item>
-        <item name="fairly_new">Worn 1-3 times</item>
-        <item name="fair">Worn a lot</item>
-        <item name="worn">Old</item>
-        <item name="trash">Trash</item>
+        <item name="fairly_new">Good</item>
+        <item name="fair">Fair</item>
+        <item name="worn">Poor</item>
     </array>
 
     <array name="category">
