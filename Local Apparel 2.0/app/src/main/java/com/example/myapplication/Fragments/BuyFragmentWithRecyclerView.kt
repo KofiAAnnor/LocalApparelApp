@@ -2,6 +2,7 @@ package com.example.myapplication.Fragments
 
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -50,7 +51,8 @@ class BuyFragmentWithRecyclerView : Fragment() {
         storeItemsList = mutableListOf()
         ref = FirebaseDatabase.getInstance().getReference("/mainShop")
 
-
+        var mPrefs = getActivity()!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+        var email = mPrefs.getString("EMAIL", "DEFAULT")
 
         ref.addValueEventListener(object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -62,7 +64,11 @@ class BuyFragmentWithRecyclerView : Fragment() {
                     storeItemsList.clear()
                     for(items in mainShop.children){
                         val thisItem = items.getValue(Items::class.java)
-                        storeItemsList.add(thisItem!!)
+                        var itememail = thisItem!!.itemEmail
+
+                        if (itememail!=email){
+                            storeItemsList.add(thisItem!!)
+                        }
                     }
                     val myAdapter = RecyclerViewAdapter(storeItemsList,requireContext(),savedInstanceState)
                     recycler_view_id.adapter = myAdapter
@@ -87,24 +93,25 @@ class BuyFragmentWithRecyclerView : Fragment() {
         val filter = filterView.findViewById<Button>(R.id.filter_Accept_Button_id)
         val cancel = filterView.findViewById<Button>(R.id.filter_Cancel_Button_id)
 
-        val minPrice = minTV.text
-        val maxPrice = maxTV.text
-        val category = catSpinner.selectedItem.toString()
-        val size = sizeSpinner.selectedItem.toString()
 
         filter.setOnClickListener {
-            Log.i(MYTAG,"MIN SEARCH PRICE: $minPrice")
-            Log.i(MYTAG,"MAX SEARCH PRICE: $maxPrice")
+            var min_price_filter = minTV.text.toString().toInt()
+            var max_price_filter = maxTV.text.toString().toInt()
+            var category = catSpinner.selectedItem.toString()
+            var size = sizeSpinner.selectedItem.toString()
+            var mPrefs = getActivity()!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
+            var email = mPrefs.getString("EMAIL", "DEFAULT")
+
+            Log.i(MYTAG,"MIN SEARCH PRICE: $min_price_filter")
+            Log.i(MYTAG,"MAX SEARCH PRICE: $max_price_filter")
             Log.i(MYTAG,"SEARCH CATEGORY: $category")
             Log.i(MYTAG,"SEARCH SIZE: $size")
-            alert.dismiss()
-
-            //KOFI MAGIC******************
+            Log.i(MYTAG,"SEARCH CURRENT EMAIL: $email")
 
             ref = FirebaseDatabase.getInstance().reference
-            val filter_query = ref.child("mainShop")
+            val filterQuery = ref.child("mainShop")
 
-            filter_query.addValueEventListener(object: ValueEventListener {
+            filterQuery.addValueEventListener(object: ValueEventListener {
                 override fun onCancelled(p0: DatabaseError) {
                     // TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
@@ -112,18 +119,15 @@ class BuyFragmentWithRecyclerView : Fragment() {
                 override fun onDataChange(mainShop: DataSnapshot) {
                     if(mainShop.exists()){
                         storeItemsList.clear()
-                        for(items in mainShop.children){
+                        for(items in mainShop.children) {
                             val thisItem = items.getValue(Items::class.java)
-                            //val itemName = thisItem!!.itemName.toString()
-                            //Log.i(MYTAG, "THE ITEM NAME IS $itemName")
-                            val priceQ = thisItem?.itemPrice
-                            val priceI = parseInt(priceQ.toString())
-                            val priceMin = parseInt(minPrice.toString())
-                            val priceMax = parseInt(maxPrice.toString())
-                            val sizev = thisItem?.itemSize
-                            val categoryv = thisItem?.itemCategory
+                            var price = thisItem!!.itemPrice!!.toInt()
+                            var itemsize = thisItem!!.itemSize
+                            var itemcategory = thisItem!!.itemCategory
+                            var itememail = thisItem!!.itemEmail
 
-                            if(priceI in priceMin..priceMax &&sizev.toString()==(size)&&categoryv.toString()==(category)) {
+
+                            if (price in min_price_filter..max_price_filter && size == itemsize && itemcategory == category&&itememail!=email){
                                 storeItemsList.add(thisItem!!)
                             }
                             val myAdapter = RecyclerViewAdapter(storeItemsList,requireContext(),savedInstanceState)
@@ -133,7 +137,7 @@ class BuyFragmentWithRecyclerView : Fragment() {
                 }
 
             })
-            //KOFI MAGIC ******************
+            alert.dismiss()
         }
 
         cancel.setOnClickListener {
