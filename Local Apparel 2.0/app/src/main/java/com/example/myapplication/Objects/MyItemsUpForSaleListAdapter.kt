@@ -38,7 +38,7 @@ class MyItemsUpForSaleListAdapter (val mCtx: Context, val layoutResID: Int, val 
             showUpdateDialog(theItem)
         }
         deleteButton.setOnClickListener {
-            Toast.makeText(context,"You are Deleting "+theItem.itemName,Toast.LENGTH_LONG).show()
+            Toast.makeText(context,"Deleting "+theItem.itemName,Toast.LENGTH_LONG).show()
             showDeleteDialog(theItem)
         }
         return myView
