@@ -18,7 +18,7 @@ import com.example.myapplication.Objects.StoreItemsListAdapter
 
 import com.example.myapplication.R
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.fragment_buy.*
+//import kotlinx.android.synthetic.main.fragment_buy.*
 import kotlinx.android.synthetic.main.fragment_buy_fragment_with_recycler_view.*
 import java.lang.Integer.parseInt
 

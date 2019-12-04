@@ -51,7 +51,7 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun selectPhoto() {
-        Toast.makeText(this, "Choose a photo", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(this, "Choose a photo", Toast.LENGTH_SHORT).show()
         Log.i(MYTAG, "User Is Choosing a Photo")
 
         //create the intent for the photo selector, this allows us to go into the
@@ -95,19 +95,19 @@ class RegistrationActivity : AppCompatActivity() {
         val zipCode: String = zipcodeTV.text.toString()
 
         if (TextUtils.isEmpty(fullName)) {
-            Toast.makeText(applicationContext, "Please enter your full name...", Toast.LENGTH_LONG).show()
+           // Toast.makeText(applicationContext, "Please enter your full name...", Toast.LENGTH_LONG).show()
             return
         } else if (TextUtils.isEmpty(email)) {
-            Toast.makeText(applicationContext, "Please enter email...", Toast.LENGTH_LONG).show()
+            //Toast.makeText(applicationContext, "Please enter email...", Toast.LENGTH_LONG).show()
             return
         } else if (TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
-            Toast.makeText(applicationContext, "Please enter password!", Toast.LENGTH_LONG).show()
+            //Toast.makeText(applicationContext, "Please enter password!", Toast.LENGTH_LONG).show()
             return
         } else if (password != confirmPassword) {
-            Toast.makeText(applicationContext, "Confirm Pass doesn't match OG Pass!", Toast.LENGTH_LONG).show()
+            // Toast.makeText(applicationContext, "Confirm Pass doesn't match OG Pass!", Toast.LENGTH_LONG).show()
             return
         } else if (TextUtils.isEmpty(zipCode)) {
-            Toast.makeText(applicationContext, "We need a zipcode to get a general Idea of where you are", Toast.LENGTH_LONG).show()
+            // Toast.makeText(applicationContext, "We need a zipcode to get a general Idea of where you are", Toast.LENGTH_LONG).show()
             return
         }
 

@@ -51,7 +51,7 @@ class SellFragment : Fragment() {
     }
 
     private fun selectPhoto() {
-        Toast.makeText(activity, "Choose a photo", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(activity, "Choose a photo", Toast.LENGTH_SHORT).show()
         Log.i(MYTAG,"User Is Choosing a Photo")
 
         //this allows us to go in their images and access their photos.
@@ -98,14 +98,14 @@ class SellFragment : Fragment() {
 
 
         if(itemName == "" || itemPrice == "" || itemSize == ""){
-            Toast.makeText(context,"You need to fill out the Item Parameters",Toast.LENGTH_LONG).show()
+            Toast.makeText(context,"Some Parameters Incomplete",Toast.LENGTH_LONG).show()
             Log.i(MYTAG,"User Needs to Fill out Item Parameters")
             return
         }
 
         if (mySelectedPhotoUri == null) { //if no photo was selected
             Log.i(MYTAG,"User Tried to upload a picture of nothing")
-            Toast.makeText(activity,"We need a Photo Of The Item",Toast.LENGTH_LONG).show()
+            Toast.makeText(activity,"Upload Item Photo",Toast.LENGTH_LONG).show()
             return
         }
 
@@ -184,7 +184,7 @@ class SellFragment : Fragment() {
         val x = myRef.child(itemID).setValue(myItem) //put the item in the DB
         x.addOnSuccessListener {
             Log.i(MYTAG, "We saved the Item")
-            Toast.makeText(activity, "Item Successfully Uploaded", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "Uploaded", Toast.LENGTH_SHORT).show()
             cleanUp()
         }
     }
