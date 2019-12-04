@@ -109,6 +109,9 @@ class RegistrationActivity : AppCompatActivity() {
         } else if (TextUtils.isEmpty(zipCode)) {
             Toast.makeText(applicationContext, "We need a zipcode to get a general Idea of where you are", Toast.LENGTH_LONG).show()
             return
+        }else if(mySelectedPhotoUri ==null){
+            Toast.makeText(applicationContext,"You need a profile Picture =)", Toast.LENGTH_LONG).show()
+            return
         }
 
         //If all the slots are filled out. We authenticate

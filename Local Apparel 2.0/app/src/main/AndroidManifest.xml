@@ -23,7 +23,8 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
         </activity>
-        <activity android:name=".MyItemsUpForSaleActivity"/>
+        <activity android:name=".MyItemsUpForSaleActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RegistrationActivity"
             android:screenOrientation="portrait" />

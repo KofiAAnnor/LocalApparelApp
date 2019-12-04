@@ -70,6 +70,7 @@ class BuyFragmentWithRecyclerView : Fragment() {
                             storeItemsList.add(thisItem!!)
                         }
                     }
+                    storeItemsList.reverse()
                     val myAdapter = RecyclerViewAdapter(storeItemsList,requireContext(),savedInstanceState)
                     recycler_view_id.adapter = myAdapter
                 }
@@ -80,12 +81,10 @@ class BuyFragmentWithRecyclerView : Fragment() {
 
     private fun showFilterDialog(savedInstanceState: Bundle?) {
         val builder = AlertDialog.Builder(requireContext())
-        //builder.setTitle("Select Filters")
         val inflater = LayoutInflater.from(requireContext())
         val filterView = inflater.inflate(R.layout.filter_dialog_layout,null)
         builder.setView(filterView)
         val alert = builder.create()
-
         val minTV = filterView.findViewById<EditText>(R.id.filter_min_ETV_id)
         val maxTV = filterView.findViewById<EditText>(R.id.filter_max_ETV_id)
         val catSpinner = filterView.findViewById<Spinner>(R.id.filter_category_spinner_id)
@@ -95,8 +94,23 @@ class BuyFragmentWithRecyclerView : Fragment() {
 
 
         filter.setOnClickListener {
-            var min_price_filter = minTV.text.toString().toInt()
-            var max_price_filter = maxTV.text.toString().toInt()
+            var min_price_filter: Int
+            var max_price_filter: Int
+
+            if(minTV.text.toString() != "" && maxTV.text.toString() == "" ){
+                min_price_filter = minTV.text.toString().toInt()
+                max_price_filter = Int.MAX_VALUE
+            }else if (minTV.text.toString() == "" && maxTV.text.toString() != "" ){
+                min_price_filter = 0
+                max_price_filter = maxTV.text.toString().toInt()
+            }else if (minTV.text.toString() == "" && maxTV.text.toString() == "" ){
+                min_price_filter = 0
+                max_price_filter = Int.MAX_VALUE
+            }else {
+                min_price_filter = minTV.text.toString().toInt()
+                max_price_filter = maxTV.text.toString().toInt()
+            }
+
             var category = catSpinner.selectedItem.toString()
             var size = sizeSpinner.selectedItem.toString()
             var mPrefs = getActivity()!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
@@ -134,9 +148,10 @@ class BuyFragmentWithRecyclerView : Fragment() {
                             if (price in min_price_filter..max_price_filter && size == itemsize && itemcategory == category&&itememail!=email){
                                 storeItemsList.add(thisItem!!)
                             }
-                            val myAdapter = RecyclerViewAdapter(storeItemsList,requireContext(),savedInstanceState)
-                            recycler_view_id.adapter = myAdapter
                         }
+                        storeItemsList.reverse()
+                        val myAdapter = RecyclerViewAdapter(storeItemsList,requireContext(),savedInstanceState)
+                        recycler_view_id.adapter = myAdapter
                     }
                 }
 

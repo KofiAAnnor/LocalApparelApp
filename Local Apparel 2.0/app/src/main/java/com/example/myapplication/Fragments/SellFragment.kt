@@ -159,6 +159,7 @@ class SellFragment : Fragment() {
     private fun saveItemToFireBaseDataBase(itemUrl: String) {
         //TODO Also add the item to the users List of items.
         //It should have the same ID in both... Maybe items should have an ID param
+        Log.i(MYTAG, "WE MADE IT HERE")
 
         //getting the user email from shared preferences
         val fragPref = this.activity!!.getSharedPreferences("MY_SHARED_PREFERENCES", Context.MODE_PRIVATE)
